@@ -67,8 +67,9 @@ export default function Accounts(props) {
                 <Link to='/login'>
                     <Login>Login</Login>
                 </Link>
-
-                <SignUpBtn>Sign Up</SignUpBtn>
+                <Link to='/signup'>
+                    <p>Sign up</p>
+                </Link>
             </Div>
         </AccountDetailsDiv>
     )
