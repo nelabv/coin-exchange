@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Accounts from './Accounts';
 import Logo from '../images/logo-placeholder.png';
+import { Link } from 'react-router-dom';
 
 const NavBar = styled.div`
     display: flex;
@@ -33,9 +34,11 @@ const Img = styled.img`
 export default function HeaderDesign(props) {
     return (
         <NavBar>
-            <LogoHolder>
-                <Img src={Logo} alt="logo placeholder" />
-            </LogoHolder>
+            <Link to='/'>
+                <LogoHolder>
+                    <Img src={Logo} alt="logo placeholder" />
+                </LogoHolder>
+            </Link>
 
             <Accounts />
         </NavBar>

@@ -18,7 +18,7 @@ const Div = styled.div `
     width: 25%;
 `;
 
-const Login = styled.a `
+const Login = styled.p `
     order: 1;
     &: hover {
         animation: hover-animation 200s infinite alternate ease-in-out;
@@ -35,6 +35,7 @@ const Login = styled.a `
     }
 `;
 
+/*
 const SignUpBtn = styled.button`
     order: 2;
     width: 50%;
@@ -59,6 +60,7 @@ const SignUpBtn = styled.button`
         }
     }
 `;
+*/
 
 export default function Accounts(props) {
     return (
