@@ -1,78 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { STYLEGUIDE } from '../StyleGuide';
-
-const AccountDetailsDiv = styled.ul `
-    display: flex;
-    justify-content: flex-end;
-    order: 2;
-    width: 50%;
-    height: 100%;
-`;
-
-const Div = styled.div `
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 25%;
-`;
-
-const Login = styled.p `
-    order: 1;
-    &: hover {
-        animation: hover-animation 200s infinite alternate ease-in-out;
-    }
-    @keyframes hover-animation {
-        0% {
-            border-color: white;
-            padding-bottom: 0;
-          }
-          0.2% {
-            border-bottom: 3px solid ${STYLEGUIDE.mainColorViolet};
-            padding-bottom: 5px;
-          }
-    }
-`;
-
-/*
-const SignUpBtn = styled.button`
-    order: 2;
-    width: 50%;
-    height: 100%;
-    font-family: 'Oxygen';
-    background-color: white;
-    border: 1px solid ${STYLEGUIDE.mainColorViolet};
-    &: hover {
-        animation: hoverbutton 200s infinite ease-in-out;
-    }
-    &: focus {
-        outline: none !important;
-    }
-    @keyframes hoverbutton {
-        0% {
-            background-color: white;
-        }
-        0.2% {
-            background-color: ${STYLEGUIDE.mainColorViolet};
-            border: none;
-            color: white;
-        }
-    }
-`;
-*/
+import Styled from '../styling/Accounts.styled';
 
 export default function Accounts(props) {
     return (
-        <AccountDetailsDiv>
-            <Div>
-                <Link to='/login'>
-                    <Login>Login</Login>
-                </Link>
-                <Link to='/signup'>
-                    <p>Sign up</p>
-                </Link>
-            </Div>
-        </AccountDetailsDiv>
+        <Styled.Div>
+            <Link to='/login' style={{ textDecoration: 'none' }}>
+                <Styled.Login>Login</Styled.Login>
+            </Link>
+            <Link to='/signup' style={{ textDecoration: 'none' }}>
+                <Styled.Signup>Sign up</Styled.Signup>
+            </Link>
+        </Styled.Div>
     )
 } 

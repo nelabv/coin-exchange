@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 // import ViewBalance from './components/Balance';
 import CoinTable from './components/CoinTable';
 import HeaderDesign from './components/Header';
+import About from './components/About';
+
 import axios from 'axios';
 
 export default function Home(props) {
   // const [balance, setBalance] = useState(10000);
   // eslint-disable-next-line
-  const [isPrivate, setIsPrivate] = useState(true);
+  const [isPrivate, setIsPrivate] = useState(false);
   const [coinData, setCoinData] = useState([]);
 
   const fetchCoinData = async () => {
@@ -69,7 +71,8 @@ export default function Home(props) {
     <HeaderDesign />
     <CoinTable    coinData={coinData}
                   isPrivate={isPrivate}
-                  handleRefreshBtn={handleRefreshBtn} />     
-    </div>
+        handleRefreshBtn={handleRefreshBtn} />
+    <About/>
+    </div> 
   );
 } 

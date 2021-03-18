@@ -1,4 +1,5 @@
 import React from 'react';
+import Styled from '../styling/BasicData.styled';
 
 export default function BasicData(props) {
     const fetchData = () => { 
@@ -12,20 +13,28 @@ export default function BasicData(props) {
     const iconURL = 'https://icons.bitbot.tools/api/' + props.ticker + '/128x128';
 
     return (
-        <div>
-                <img src={iconURL} alt={`${props.name} logo`} />
-                <h1>{props.name}</h1>
-                <h2>{props.ticker}</h2>
-                <p>Rank {props.rank}</p>
-                <p>{props.description}</p>
-
-                { props.hasWhitepaper
-                    ? <button onClick={fetchData}>Whitepaper</button>
-                    : null}
+        <Styled.Div>
+            <Styled.Icon src={iconURL} alt={`${props.name} logo`} />
+            
+            <Styled.Div3>
+                <Styled.Section>
+                    <Styled.H1>{props.name}</Styled.H1>
+                    <Styled.H2>{props.ticker}</Styled.H2>
+                    <Styled.P>Rank {props.rank}</Styled.P>
+                </Styled.Section>
                 
-                { props.hasSourceCodeLink
-                    ? <button onClick={handleSourceCode}>Source Code</button>
+                <Styled.Description>{props.description}</Styled.Description>
+
+                <Styled.ButtonsDiv>
+                    { props.hasWhitepaper
+                    ? <Styled.Button onClick={fetchData}>Whitepaper</Styled.Button>
                     : null}
-        </div>
+
+                    { props.hasSourceCodeLink
+                    ? <Styled.Button onClick={handleSourceCode}>Source Code</Styled.Button>
+                    : null}
+                </Styled.ButtonsDiv>
+            </Styled.Div3>
+        </Styled.Div>
     );
 }

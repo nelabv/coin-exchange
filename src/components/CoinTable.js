@@ -1,78 +1,30 @@
 import React from 'react';
-import styled from 'styled-components';
-import { STYLEGUIDE } from '../StyleGuide';
 import Coin from './Coin';
-
-const TableDiv = styled.section `
-    display:flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    width: 100%;
-    padding: 50px 0 70px 0;
-    background-color: ${STYLEGUIDE.mainColorLightGray};
-`;
-
-const H2 = styled.h2 `
-    order: 1;
-    width: 40%;
-    text-align: left;
-    margin: auto;
-    font-size: ${STYLEGUIDE.fontSizeMedium2};
-`;
-
-const Table = styled.table `
-    order: 2;
-    background-color: white;
-    border: 1px solid #f2f2f2;
-    padding: 0 20px 0 20px;
-    align: center;
-    margin: auto;
-    cellspacing="0";
-    cellpadding="0";
-    border-spacing: 0;
-    width: 80%;
-    border-radius: 5px;
-`;
-
-const Th = styled.th `
-    font-size: default;
-    padding: 20px 8px 20px 8px;
-    color: ${STYLEGUIDE.fontColorText};
-    text-align: left;
-    border-bottom: 1px solid #f2f2f2;
-`;
-
-const TextHolder = styled.div `
-    order: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
-`;
-
+import Styled from '../styling/CoinTable.styled';
+ 
 export default function CoinTable(props) {
   return (
-      <TableDiv>
-        <TextHolder>
-          <H2>Top 20 Currencies by Market Cap</H2>
-        </TextHolder>
+    <Styled.Div>
+      <Styled.ContentDiv>
+        <Styled.H2>Top 20 Currencies by Market Cap</Styled.H2>
 
 
-        <Table>
+        <Styled.Table>
           <colgroup>
-              <col style= {{width: '6%'}}/>
-              <col style= {{width: '10%'}}/>
-              <col style= {{width: '25%'}}/>
+            <col span='2' style={{ width: '5%'}} />
+            <col span='2' style={{ width: '15%'}} />
+            <col span='2' style={{ width: '25%'}} />
+            <col span='1' style= {{width: '10%'}}/>
           </colgroup>
           <thead>
             <tr>
-              <Th>#</Th>
-            <Th>Name</Th>
-              <Th></Th>
-              <Th>Your Balance</Th>
-              <Th>Last Price</Th>
-              <Th></Th>
+              <th>#</th>
+              <th>Name</th>
+              <th></th>
+              <th></th>
+              <th>Your Balance</th>
+              <th>Last Price</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>    
@@ -91,8 +43,10 @@ export default function CoinTable(props) {
                 />           
               )}
           </tbody>
-        </Table>
-      </TableDiv>
+        </Styled.Table>
+      </Styled.ContentDiv>
+
+      </Styled.Div>
   )
 
 } 

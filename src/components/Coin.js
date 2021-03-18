@@ -1,26 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import Styled from '../styling/Coin.styled';
 
-import { STYLEGUIDE } from '../StyleGuide';
 import { Link } from 'react-router-dom';
 
 // STYLING ------------------
-
-const RefreshButton = styled.button `
-color: ${STYLEGUIDE.fontColorText};
-text-decoration: none;
-background-color: ${STYLEGUIDE.mainColorLightGray};
-padding: 10px;
-border: none;
-display: inline-block;
-transition: all 0.4s ease 0s;
-    &:hover {
-      color: white;
-      background: ${STYLEGUIDE.mainColorBlue};
-      transition: all 0.4s ease 0s;
-    }
-`;
+/* 
 
 const Td = styled.td `
     font-weight: normal;
@@ -52,7 +37,7 @@ const Tr = styled.tr `
           background-color: #F3F9F9;
           transition: all 0.3s ease 0s;
         }
-`;
+`; */
 
 export default function Coin(props) { 
   const handleRefreshBtn = (event) => {
@@ -63,28 +48,34 @@ export default function Coin(props) {
   const iconURL = ("https://icons.bitbot.tools/api/" + props.ticker + "/32x32");
 
   return (
-    <Tr>
-      <Rank>{props.rank}</Rank>
+    <tr>
+      <td>{props.rank}</td>
       
-      <Name>
-        <img src={iconURL} alt={`${props.name} logo`}/>
+      <td>
         <Link to={'/currencies/' + props.coinId}>
-          {props.name}
+          <img src={iconURL} alt={`${props.name} logo`}/>
         </Link>
-      </Name>
-      
-      <Td> {props.ticker}</Td>
+        
+      </td>
 
-      { props.isPrivate ? (<Td>{props.balance}</Td>) : (<Td>Balance hidden</Td>)}
+      <td>
+        <Styled.StyledLink to={'/currencies/' + props.coinId}>
+          {props.name}
+        </Styled.StyledLink>
+      </td>
       
-      <Td>${props.price}</Td>
+      <Styled.TickerTd> {props.ticker}</Styled.TickerTd>
 
-      <Td>
+      { props.isPrivate ? (<td>{props.balance}</td>) : (<td>-</td>)}
+      
+      <td>${props.price}</td>
+
+      <Styled.ButtonTd>
           <form action="#" method="post">
-            <RefreshButton onClick={handleRefreshBtn}>Refresh</RefreshButton>
+            <Styled.Button onClick={handleRefreshBtn}>Refresh</Styled.Button>
           </form>
-      </Td>
-    </Tr>
+      </Styled.ButtonTd>
+    </tr>
   );
   
 }
