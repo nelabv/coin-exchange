@@ -1,27 +1,42 @@
 import styled from 'styled-components';
 import Breakpoints from './Breakpoints';
 import { Menu } from '@styled-icons/boxicons-regular/Menu';
+import GeneralStyling from './GeneralStyling';
 
-const HamburgerMenu = styled(Menu)`
-    color: gray;
+const MainContainer = styled.div`
+    background-color: white;
+`;
 
-    @media only screen and (${Breakpoints.tabletMin}) and (${Breakpoints.tabletMax}) {
-        height: 30px;
-    }
+const MobileNav = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80vw;
+    height: 50px;
+    margin: auto;
+    padding: 20px 0 20px 0;
 
-    @media only screen and (${Breakpoints.laptop}) {
+    @media only screen and (${Breakpoints.tabletMin}) {
         display: none;
     }
 `;
 
-const Div = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 10vh;
-    width: 80vw;
-    margin: auto;
-    border-bottom: 1px solid #F3F3F3;
+const HamburgerMenu = styled(Menu)`
+    color: ${GeneralStyling.textColor.gray};
+`;
+
+const Actions = styled.div`
+    display: none;
+
+    @media only screen and (${Breakpoints.tabletMin}) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 10vh;
+        width: 80vw;
+        margin: auto;
+        border-bottom: 1px solid #F3F3F3;
+    }
 `;
 
 const Logo = styled.img`
@@ -31,9 +46,11 @@ const Logo = styled.img`
 `;
 
 const Styled = {
-    Div,
+    MainContainer,
+    MobileNav,
+    HamburgerMenu,
+    Actions,
     Logo,
-    HamburgerMenu
 }
 
 export default Styled;

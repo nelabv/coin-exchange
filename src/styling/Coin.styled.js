@@ -3,6 +3,9 @@ import Elements from './Elements';
 import GeneralStyling from './GeneralStyling';
 import { Link } from 'react-router-dom';
 
+const FixedTd = styled.td`
+    position: sticky;
+`;
 const Button = styled(Elements.Button)``;
 
 const ButtonTd = styled.td`
@@ -18,11 +21,14 @@ const StyledLink = styled(Link)`
     }
 `;
 
-const TickerTd = styled.td`
+const TickerTd = styled.p`
     color: ${GeneralStyling.textColor.gray};
+    padding: 0;
+    margin: 0;
 `;
 
 const Styled = {
+    FixedTd,
     Button,
     ButtonTd,
     StyledLink,

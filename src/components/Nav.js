@@ -12,16 +12,20 @@ export default function Nav(props) {
     }
 
     return (
-        <div>
-            <Styled.Div>
+        <Styled.MainContainer>
+            <Styled.MobileNav>
+                <Styled.Logo src={Logo} alt="logo placeholder" />
+                <Styled.HamburgerMenu size="30" onClick={ showLoginBar }/>
+            </Styled.MobileNav>
+
+            <Styled.Actions>
                 <Link to='/'>
                     <Styled.Logo src={Logo} alt="logo placeholder" />
                 </Link>
 
-                <Styled.HamburgerMenu size="50" onClick={ showLoginBar }/>
-
                 <Accounts />
-            </Styled.Div>
+            </Styled.Actions>
+            
             {isShown ?
                 <div>
                     <Link to='/login' style={{ textDecoration: 'none' }} onClick={ showLoginBar }>
@@ -33,6 +37,6 @@ export default function Nav(props) {
                 </div>
                 : null
             }
-        </div>
+        </Styled.MainContainer>
     )
 } 

@@ -60,13 +60,14 @@ export default function Coin(props) {
 
       <td>
         <Styled.StyledLink to={'/currencies/' + props.coinId}>
-          {props.name}
+          {props.name} <br/>
+          <Styled.TickerTd>{props.ticker}</Styled.TickerTd>
         </Styled.StyledLink>
       </td>
-      
-      <Styled.TickerTd> {props.ticker}</Styled.TickerTd>
 
+      {/* 
       { props.isPrivate ? (<td>{props.balance}</td>) : (<td>-</td>)}
+      */}
       
       <td>${props.price}</td>
 

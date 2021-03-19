@@ -24,7 +24,7 @@ export default function HeaderDesign(props) {
         <Styled.BackgroundDiv>
             <Styled.TextDiv>
                 <Styled.H1>Buy and sell cryptocurrency</Styled.H1>
-                <Styled.H2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Styled.H2>
+                <Styled.H2>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</Styled.H2>
             </Styled.TextDiv>
         </Styled.BackgroundDiv>
     )

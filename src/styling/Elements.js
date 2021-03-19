@@ -33,10 +33,11 @@ const Button = styled.button `
     color: white;
     text-decoration: none;
     background-color: ${GeneralStyling.palette.orange};
-    padding: 10px;
+    padding: 15px;
     font-family: "Inter", sans-serif;
     font-size: ${GeneralStyling.fontSizes.small};
     border: none;
+    border-radius: 10px;
     transition: all 0.4s ease 0s;
     
     &:hover {

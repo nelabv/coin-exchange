@@ -21,7 +21,7 @@ const H1 = styled(Elements.H1)`
     font-size: 2em;
     order: 1;
     margin: 0;
-    padding: 0;
+    padding: 25px 0 25px 0;
 
     @media only screen and (${Breakpoints.laptop}) {
         font-size: 3em;
@@ -31,11 +31,13 @@ const H1 = styled(Elements.H1)`
 const H2 = styled(Elements.H2)`
     color: white;
     font-weight: 200;
+    line-height: 24pt;
     order: 2;
     font-size: 1em;
 
     @media only screen and (${Breakpoints.laptop}) {
         font-size: 2em;
+        line-height: 48pt;
     }
 `;
 
