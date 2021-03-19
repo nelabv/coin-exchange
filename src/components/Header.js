@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Styled from '../styling/Header.styled';
 
 export default function HeaderDesign(props) {
-    const [errorMsg, setErrorMsg] = useState('');
+/*     const [errorMsg, setErrorMsg] = useState('');
     
     const getUserInput = () => { 
         // Checks if user input is a valid email structure (example@someemail.com)
@@ -18,7 +18,7 @@ export default function HeaderDesign(props) {
                 setErrorMsg("Please enter a valid email address.")
             } 
         }
-    }
+    } */
 
     return (
         <Styled.BackgroundDiv>

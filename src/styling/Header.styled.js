@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Breakpoints from './Breakpoints';
-import GeneralStyling from './GeneralStyling';
 import Elements from './Elements';
 
 const BackgroundDiv = styled.div`

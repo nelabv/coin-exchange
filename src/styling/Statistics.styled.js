@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import Elements from './Elements';
-import GeneralStyling from './GeneralStyling';
 
 const Div = styled.div`
     display: flex;
