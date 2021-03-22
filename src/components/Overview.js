@@ -8,6 +8,8 @@ export default function Overview(props) {
 
     const [hasSourceCodeLink, setHasSourceCodeLink] = useState(false);
     const [hasWhitepaper, setHasWhitePaper] = useState(false);
+    const [hasMaxSupply, setHasMaxSupply] = useState();
+
     const [statistics, setStatistics] = useState({});
     const [coin, setCoin] = useState({});
 
@@ -38,8 +40,17 @@ export default function Overview(props) {
         // Retrieves coin statistics
         const fetchedData = await axios.get('https://api.coinpaprika.com/v1/tickers/' + id);
         const coinStats = await fetchedData.data;
-
+        
         setStatistics(coinStats);
+
+        // Checks if currency has total supply
+        if (coinStats.circulating_supply === coinStats.total_supply) {
+            setHasMaxSupply(false);
+            // no max supply
+        } else {
+            setHasMaxSupply(true);
+            // has max supply
+        }
     }
 
     useEffect(function () {
@@ -77,9 +88,11 @@ export default function Overview(props) {
                 statistics={statistics}
                 lastUpdate={statistics.last_updated}
                 price={statistics?.quotes?.USD?.price}
+                ticker={coin.symbol}
                 marketRank={statistics.rank}
-                circulatingSupply
-                maxSupply/>
+                circulatingSupply={statistics?.circulating_supply}
+                totalSupply={statistics.total_supply}
+                hasMaxSupply={hasMaxSupply} />
         </div>
     );
 } 

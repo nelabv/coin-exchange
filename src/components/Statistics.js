@@ -4,24 +4,38 @@ import Styled from '../styling/Statistics.styled';
 export default function Statistics(props) {
     const lastUpdate = new Date(props.lastUpdate).toUTCString();
 
+    const formatNumber = (supply) => {
+        return supply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    const checkIfNotEmpty = (data) => {
+        if (data !== undefined) {
+            return formatNumber(data);
+        }
+    }
+
     return (
-        <Styled.Div>
-            <Styled.StatsDiv>
-                <div>
-                    <h1>Statistics</h1>
-                    <p>Last updated: {lastUpdate}</p>
-                </div>
+        <Styled.MainContainer>
+            <Styled.Container>
+                <Styled.Header>
+                    <Styled.StatIcon size="40" />
 
-                <div>
-                    <p>Price: ${props.price}</p>
-                    <p>Market Rank: {props.marketRank}</p>                
-                </div>
-            </Styled.StatsDiv>
+                    <Styled.Section>
+                        <Styled.Stat>Statistics</Styled.Stat>
+                        <Styled.LastUpdate>Last updated: {lastUpdate}</Styled.LastUpdate>
+                    </Styled.Section>
+                    
+                </Styled.Header>
 
-            <Styled.SupplyDiv>
-                <p>Circulating supply: {props.circulatingSupply}</p>
-                <p>Max supply: {props.maxSupply}</p>
-            </Styled.SupplyDiv>
-        </Styled.Div>
+                    <div>
+                        <p>Price: ${props.price}</p>
+                        <p>Market Rank: {props.marketRank}</p>                
+                    </div>
+                    <p>Circulating supply: {checkIfNotEmpty(props.circulatingSupply)} {props.ticker}</p>
+
+                    { props.hasMaxSupply ? <p>Total supply: {checkIfNotEmpty(props.totalSupply)}</p>
+                    : null}
+            </Styled.Container>
+        </Styled.MainContainer>
     );
 } 
