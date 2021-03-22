@@ -8,7 +8,7 @@ export default function Overview(props) {
 
     const [hasSourceCodeLink, setHasSourceCodeLink] = useState(false);
     const [hasWhitepaper, setHasWhitePaper] = useState(false);
-    const [hasMaxSupply, setHasMaxSupply] = useState();
+    const [progressBar, setProgressBar] = useState();
 
     const [statistics, setStatistics] = useState({});
     const [coin, setCoin] = useState({});
@@ -24,6 +24,11 @@ export default function Overview(props) {
             setCondition(true);
         }
     }
+
+    const calculatePercentage = (partialValue, totalValue) => {
+        const res = (100 * partialValue) / totalValue;
+        return res.toFixed(0);;
+     }
 
     // --------------------------------------------
 
@@ -43,13 +48,16 @@ export default function Overview(props) {
         
         setStatistics(coinStats);
 
-        // Checks if currency has total supply
-        if (coinStats.circulating_supply === coinStats.total_supply) {
-            setHasMaxSupply(false);
-            // no max supply
+        const percent = calculatePercentage(coinStats.circulating_supply, coinStats.total_supply);
+        console.log(" PERCENTAGE IS" + percent);
+
+        // Checks if currency has total supply; needs progress bar
+
+        // Condition 1: If circulating and total supply is ~ 100%
+        if (percent === '100') {
+            setProgressBar(false);
         } else {
-            setHasMaxSupply(true);
-            // has max supply
+            setProgressBar(true);
         }
     }
 
@@ -92,7 +100,7 @@ export default function Overview(props) {
                 marketRank={statistics.rank}
                 circulatingSupply={statistics?.circulating_supply}
                 totalSupply={statistics.total_supply}
-                hasMaxSupply={hasMaxSupply} />
+                progressBar={progressBar} />
         </div>
     );
 } 

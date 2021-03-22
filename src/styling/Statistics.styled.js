@@ -4,7 +4,7 @@ import { Stats } from '@styled-icons/boxicons-regular/Stats';
 
 const MainContainer = styled.div`
     padding: 10px 0 90px 0;
-    background: linear-gradient(0deg, ${GeneralStyling.palette.red} 0%, ${GeneralStyling.palette.orange} 100%);
+    background: ${GeneralStyling.palette.offwhite};
 `;
 
 const Container = styled.div`
@@ -24,7 +24,7 @@ const Header = styled.div`
 
 const StatIcon = styled(Stats)`
     padding: 0 10px 0 0;
-    color: white;
+    color: ${GeneralStyling.palette.red};
 `;
 
 
@@ -38,14 +38,15 @@ const Stat = styled.p`
     padding: 0;
     margin: 0;
     font-size: 20px;
-    color: white;
+    font-weight: 500;
+    color: ${GeneralStyling.palette.red};;
 `;
 
 const LastUpdate = styled.p`
     padding: 5px 0 5px 0;
     margin: 0;
     font-size: 12px;
-    color: white;
+    color: ${GeneralStyling.textColor.gray};
 `;
 
 const P = styled.p`

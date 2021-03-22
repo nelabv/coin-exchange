@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Styled from '../styling/LoginSection.styled';
 
 export default function LoginSection(props) {
     const [errorMsg, setErrorMsg] = useState('');
@@ -30,7 +31,7 @@ export default function LoginSection(props) {
 
     return (
         <div>
-            <h1>Welcome back!</h1>
+            <Styled.H1>Welcome back!</Styled.H1>
             <p>Please check that you are visiting the correct URL.</p>
             <input autoFocus id="email-input" type="email" placeholder="Email address" /> <br />
             <p>{errorMsg}</p>

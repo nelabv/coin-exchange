@@ -1,4 +1,5 @@
 import React from 'react';
+import ParentBar from './ProgressBar/ParentBar';
 import Styled from '../styling/Statistics.styled';
 
 export default function Statistics(props) {
@@ -29,12 +30,13 @@ export default function Statistics(props) {
 
                     <div>
                         <p>Price: ${props.price}</p>
-                        <p>Market Rank: {props.marketRank}</p>                
+                        <p>Market Rank: {props.marketRank}</p>         
                     </div>
-                    <p>Circulating supply: {checkIfNotEmpty(props.circulatingSupply)} {props.ticker}</p>
 
-                    { props.hasMaxSupply ? <p>Total supply: {checkIfNotEmpty(props.totalSupply)}</p>
-                    : null}
+                    { props.progressBar ? <ParentBar circulatingSupply= {props.circulatingSupply}
+                                                    totalSupply= {props.totalSupply}
+                                                    ticker= {props.ticker}/>
+                        : <p>Circulating Supply: {checkIfNotEmpty(props.circulatingSupply)} {props.ticker}</p> }
             </Styled.Container>
         </Styled.MainContainer>
     );
