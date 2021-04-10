@@ -1,7 +1,5 @@
-import styled from 'styled-components';
-import Breakpoints from './Breakpoints';
+/* import styled from 'styled-components';
 import { Menu } from '@styled-icons/boxicons-regular/Menu';
-import GeneralStyling from './GeneralStyling';
 
 const MainContainer = styled.div`
     background-color: white;
@@ -16,19 +14,19 @@ const MobileNav = styled.div`
     margin: auto;
     padding: 20px 0 20px 0;
 
-    @media only screen and (${Breakpoints.tabletMin}) {
+    @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
         display: none;
     }
 `;
 
 const HamburgerMenu = styled(Menu)`
-    color: ${GeneralStyling.textColor.gray};
+    color: ${props => props.theme.textColor.gray};
 `;
 
 const Actions = styled.div`
     display: none;
 
-    @media only screen and (${Breakpoints.tabletMin}) {
+    @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -53,4 +51,4 @@ const Styled = {
     Logo,
 }
 
-export default Styled;
+export default Styled; */

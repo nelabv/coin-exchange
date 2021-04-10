@@ -1,25 +1,20 @@
-import React from 'react';
+/* import React from 'react';
 import Coin from './Coin';
 import Styled from '../styling/CoinTable.styled';
  
-export default function CoinTable(props) {
+export default function CoinTable1(props) {
   return (
     <Styled.Div>
-      <Styled.H2>Top 20 Currencies by Market Cap</Styled.H2>
 
       <Styled.ContentDiv>
+      <Styled.Heading2>Top 20 Currencies by Market Cap</Styled.Heading2>
         <Styled.Table>
-          <colgroup>
-          </colgroup>
 
           <thead>
             <tr>
               <th>#</th>
               <th>Name</th>
               <th></th>
-              {/* 
-              <th>Your Balance</th>
-              */}
               <th>Last Price</th>
               <th>Actions</th>
             </tr>
@@ -46,4 +41,4 @@ export default function CoinTable(props) {
       </Styled.Div>
   )
 
-} 
+}  */

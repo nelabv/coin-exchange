@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-// import ViewBalance from './components/Balance';
-import CoinTable from './components/CoinTable';
-import HeaderDesign from './components/Header';
-import About from './components/About';
-
+import CoinTable from './components/CoinData/CoinTable'
+import Banner from './components/Banner';
 import axios from 'axios';
 
 export default function Home(props) {
-  // const [balance, setBalance] = useState(10000);
-  // eslint-disable-next-line
   const [isPrivate, setIsPrivate] = useState(false);
   const [coinData, setCoinData] = useState([]);
 
   const fetchCoinData = async () => {
+    function getPrice(coinId){
+      let coinKey = priceInquiry.data.find(x => x.id === coinId).quotes['USD'].price;
+        return coinKey;
+    }
+    
     const priceInquiry = await axios.get('https://api.coinpaprika.com/v1/tickers');
 
     let filteredRank = priceInquiry.data.sort(function(a, b)
@@ -24,15 +24,11 @@ export default function Home(props) {
         name: coin.name,
         ticker: coin.symbol,
         balance: 0,
-        price: parseFloat(getPrice(coin.id).toFixed(4)),
+        price: parseFloat(getPrice(coin.id).toFixed(2)),
         rank: coin.rank
       }
     })
 
-    function getPrice(coinId){
-      let coinKey = priceInquiry.data.find(x => x.id === coinId).quotes['USD'].price;
-        return coinKey;
-    }
 
     setCoinData(newCoinData);
   }
@@ -42,12 +38,6 @@ export default function Home(props) {
       fetchCoinData();
     }
   })
-
-  /*
-  const setPrivacy = () => {
-    setIsPrivate(oldValue => !oldValue);
-  }
-  */
 
   const handleRefreshBtn = async (coinPriceId) => {
   const tickerLink = 'https://api.coinpaprika.com/v1/tickers/';
@@ -67,12 +57,13 @@ export default function Home(props) {
 }
 
   return (
-    <div>
-    <HeaderDesign />
-    <CoinTable    coinData={coinData}
-                  isPrivate={isPrivate}
-        handleRefreshBtn={handleRefreshBtn} />
-    <About/>
-    </div> 
+    <>
+      <Banner />
+      <CoinTable
+          coinData={coinData}
+          isPrivate={isPrivate}
+          handleRefreshBtn={handleRefreshBtn}
+      />
+    </> 
   );
 } 

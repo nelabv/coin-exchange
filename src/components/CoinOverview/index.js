@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Statistics from './Statistics';
-import BasicData from './BasicData';
+import CoinStatistics from '../CoinStatistics';
+import CoinBasicInfo from '../CoinBasicInfo'
 import axios from 'axios';
 
-export default function Overview(props) {
+export default function CoinOverview(props) {
     const id = props.match.params.currency;
 
     const [hasSourceCodeLink, setHasSourceCodeLink] = useState(false);
     const [hasWhitepaper, setHasWhitePaper] = useState(false);
     const [progressBar, setProgressBar] = useState();
 
-    const [statistics, setStatistics] = useState({});
     const [coin, setCoin] = useState({});
+    const [statistics, setStatistics] = useState({});
 
     // UTILITY FUNCTIONS --------------------------
 
@@ -35,14 +35,14 @@ export default function Overview(props) {
     const fetchBasicData = async () => {
         // Retrieves a coin's basic information
         const apiCall = await axios.get('https://api.coinpaprika.com/v1/coins/' + id);
-        let basicData = await apiCall.data;
+        const basicData = await apiCall.data;
 
         setCoin(basicData);
 
         dataChecker(basicData.whitepaper.link, setHasWhitePaper);
         dataChecker(basicData.links["source_code"], setHasSourceCodeLink);
 
-        // Retrieves coin statistics
+        // Retrieves coin statistics ---------------------------------------------
         const fetchedData = await axios.get('https://api.coinpaprika.com/v1/tickers/' + id);
         const coinStats = await fetchedData.data;
         
@@ -81,25 +81,15 @@ export default function Overview(props) {
 
     return (
         <div>
-            <BasicData
+            <CoinBasicInfo
                 coin={coin}
-                name={coin.name}
-                ticker={coin.symbol}
-                rank={coin.rank}
-                description={coin.description}
 
                 goToSourceCode={goToSourceCode}
                 hasSourceCodeLink={hasSourceCodeLink}
                 hasWhitepaper={hasWhitepaper}
                 checkWhitepaper={checkWhitepaper} />
-            <Statistics
+            <CoinStatistics
                 statistics={statistics}
-                lastUpdate={statistics.last_updated}
-                price={statistics?.quotes?.USD?.price}
-                ticker={coin.symbol}
-                marketRank={statistics.rank}
-                circulatingSupply={statistics?.circulating_supply}
-                totalSupply={statistics.total_supply}
                 progressBar={progressBar} />
         </div>
     );

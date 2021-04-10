@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Elements from './Elements';
-import GeneralStyling from './GeneralStyling';
 import { Link } from 'react-router-dom';
 
 const FixedTd = styled.td`
@@ -14,15 +13,15 @@ const ButtonTd = styled.td`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color: ${GeneralStyling.textColor.black};
+    color: ${props => props.theme.textColor.black};
 
     &:hover {
-        color: ${GeneralStyling.textColor.gray};
+        color: ${props => props.theme.textColor.gray};
     }
 `;
 
 const TickerTd = styled.p`
-    color: ${GeneralStyling.textColor.gray};
+    color: ${props => props.theme.textColor.gray};
     padding: 0;
     margin: 0;
 `;

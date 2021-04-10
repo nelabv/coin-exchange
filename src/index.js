@@ -1,24 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { ThemeProvider } from "styled-components";
+import theme from './styling/StyledElements/Theme';
+import '../src/index.css';
+
 import Home from './Home';
-import Nav from './components/Nav';
-import './index.css';
+import Navbar from './components/Navbar';
+import CoinOverview from './components/CoinOverview';
+
 import reportWebVitals from './reportWebVitals';
-import Overview from './components/Overview';
-import LoginSection from './components/LoginSection';
-import SignUpSection from './components/SignupSection';
 
 const routing = (
-  <Router>
-    <div>
-      <Nav />
+  <ThemeProvider theme={theme}>
+    <Router>
+      <Route path='/' component={Navbar} />
       <Route exact path='/' component={Home} />
-      <Route path='/login' component={LoginSection} />
-      <Route path='/signup' component={SignUpSection} />
-      <Route path='/currencies/:currency' component={Overview} />
-    </div>
-  </Router>
+      <Route path='/currencies/:currency' component={CoinOverview} />
+    </Router>
+  </ThemeProvider>
 )
 
 ReactDOM.render(

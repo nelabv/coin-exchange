@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Styled from '../styling/BasicData.styled';
+import Styled from '../../styling/BasicData.styled';
 
-export default function BasicData(props) {
+export default function CoinBasicInfo(props) {
     const fetchData = () => { 
         props.checkWhitepaper();
     }
@@ -25,11 +25,11 @@ export default function BasicData(props) {
             </Styled.MobileActions>
 
             <Styled.Info>
-                <Styled.Icon src={iconURL} alt={`${props.name} logo`} />
+                <Styled.Icon src={iconURL} alt={`${props.coin.name} logo`} />
 
                 <Styled.Section>
-                    <Styled.H1>{props.name}</Styled.H1>
-                    <Styled.H2>{props.ticker}</Styled.H2>
+                    <Styled.H1>{props.coin.name}</Styled.H1>
+                    <Styled.H2>{props.coin.symbol}</Styled.H2>
                 </Styled.Section>
             </Styled.Info>
                 
@@ -37,10 +37,10 @@ export default function BasicData(props) {
                 <Styled.DetailsContainer>
                     <Styled.RankBox>
                         <Styled.StarIcon size="20"/>
-                        <Styled.Rank>Rank {props.rank}</Styled.Rank>
+                        <Styled.Rank>Rank {props.coin.rank}</Styled.Rank>
                     </Styled.RankBox>
                     
-                    <Styled.Description>{props.description}</Styled.Description>
+                    <Styled.Description>{props.coin.description}</Styled.Description>
 
                     <Styled.ButtonsDiv>
                         { props.hasWhitepaper

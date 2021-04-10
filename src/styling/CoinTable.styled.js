@@ -1,28 +1,29 @@
 import styled from 'styled-components';
-import GeneralStyling from './GeneralStyling';
-import Breakpoints from './Breakpoints';
+import {
+        FlexCenter,
+        H2
+    } from './StyledElements/index';
 import Elements from './Elements';
 
-const Div = styled.div`
-    justify-content: space-evenly;
-    background-color: white;
+const Div = styled(FlexCenter)`
+    background-color: pink;
     padding: 30px 0 50px 0;
 `;
 
-const ContentDiv = styled.div`
-    width: 80vw;
+const ContentDiv = styled(FlexCenter)`
+    width: 85vw;
     margin: auto;
     overflow-x:auto;
     overflow: auto;
     border-radius: 15px;
+    background-color: yellow;
 `;
 
-const H2 = styled(Elements.H2)`
-    color: ${GeneralStyling.palette.red};
-    font-size: 1.5em;
+const Heading2 = styled(H2)`
+    color: ${props => props.theme.colors.red};
     line-height: 36pt;
-    text-align: center;
-    padding: 0;
+    text-align: left;
+    background-color: blue;
 `;
 
 const Table = styled.table `
@@ -37,8 +38,8 @@ const Table = styled.table `
     & th {
         padding: 15px 0 15px 0;
         font-weight: 400;
-        color: ${GeneralStyling.textColor.gray};
-        font-size: ${GeneralStyling.fontSizes.small};
+        color: ${props => props.theme.textColor.gray};
+        font-size: 12px;
     }
 
     & td {
@@ -46,7 +47,7 @@ const Table = styled.table `
         border-bottom: 1px solid #F3F3F3;
     }
 
-    @media only screen and (${Breakpoints.tabletMin}){
+    @media only screen and (${props => props.theme.breakpoint.tabletMin}){
         & tr:nth-child(even) {
             background-color: #FCFBF8;
             text-align: left;
@@ -61,8 +62,7 @@ const Table = styled.table `
         & th {
             padding: 15px 0 15px 0;
             font-weight: 400;
-            color: ${GeneralStyling.textColor.gray};
-            font-size: ${GeneralStyling.fontSizes.small};
+            color: ${props => props.theme.textColor.gray};
             }
 
         & td {
@@ -75,7 +75,7 @@ const Table = styled.table `
 const Styled = {
     Div,
     ContentDiv,
-    H2,
+    Heading2,
     Table
 }
 

@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import GeneralStyling from './GeneralStyling';
 import { Stats } from '@styled-icons/boxicons-regular/Stats';
 
 const MainContainer = styled.div`
     padding: 10px 0 90px 0;
-    background: ${GeneralStyling.palette.offwhite};
+    background: ${props => props.theme.colors.offwhite};
 `;
 
 const Container = styled.div`
@@ -24,7 +23,7 @@ const Header = styled.div`
 
 const StatIcon = styled(Stats)`
     padding: 0 10px 0 0;
-    color: ${GeneralStyling.palette.red};
+    color: ${props => props.theme.colors.red};
 `;
 
 
@@ -39,14 +38,14 @@ const Stat = styled.p`
     margin: 0;
     font-size: 20px;
     font-weight: 500;
-    color: ${GeneralStyling.palette.red};;
+    color: ${props => props.theme.colors.red};
 `;
 
 const LastUpdate = styled.p`
     padding: 5px 0 5px 0;
     margin: 0;
     font-size: 12px;
-    color: ${GeneralStyling.textColor.gray};
+    color: ${props => props.theme.textColor.gray};
 `;
 
 const P = styled.p`

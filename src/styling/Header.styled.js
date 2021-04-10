@@ -1,50 +1,51 @@
 import styled from 'styled-components';
-import Breakpoints from './Breakpoints';
-import Elements from './Elements';
+import Background from '../images/header-background-img.jpg';
+import { FlexCenter,
+            H1,
+            Subheading
+        } from './StyledElements/index';
 
-const BackgroundDiv = styled.div`
-    align-items: center;
+const MainContainer = styled(FlexCenter)`
     width: 100%;
-    background-color: black;
+    padding: 100px 0 30px 0;
+    background-color: yellow;
+    background: url(${Background}); 
+    background-size: cover;
 `;
 
-const TextDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 8vw 9vw 8vw 9vw;
+const HeadingContainer = styled(FlexCenter)`
+    align-items: flex-start;
+    width: 85%;
 `;
 
-const H1 = styled(Elements.H1)`
+const Heading = styled(H1)`
+    font-size: ${props => props.theme.fontSize.large};
+    line-height: 48pt;
+    padding: 50px 0 0 0;
     color: white;
-    font-size: 2em;
-    order: 1;
-    margin: 0;
-    padding: 25px 0 25px 0;
 
-    @media only screen and (${Breakpoints.laptop}) {
-        font-size: 3em;
+    @media only screen and (${props => props.theme.breakpoint.laptop}) {
+        font-size: 2.5em;
+        padding: 50px 0 0 0;
     }
 `;
 
-const H2 = styled(Elements.H2)`
-    color: white;
-    font-weight: 200;
-    line-height: 24pt;
-    order: 2;
+const SubText = styled(Subheading)`
     font-size: 1em;
+    text-align: left;
+    color: white;
+    padding: 10px 0 50px 0;
 
-    @media only screen and (${Breakpoints.laptop}) {
-        font-size: 2em;
+    @media only screen and (${props => props.theme.breakpoint.laptop}) {
+        font-size: 1.5em;
         line-height: 48pt;
+        padding: 30px 0 20px 0;
     }
 `;
 
-const Styled = {
-    BackgroundDiv,
-    TextDiv,
-    H1,
-    H2
+export {
+    MainContainer,
+    HeadingContainer,
+    Heading,
+    SubText
 }
-
-export default Styled;

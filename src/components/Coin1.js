@@ -1,11 +1,11 @@
-import React from 'react';
+/* import React from 'react';
 import PropTypes from 'prop-types';
 import Styled from '../styling/Coin.styled';
 
 import { Link } from 'react-router-dom';
 
 // STYLING ------------------
-/* 
+
 
 const Td = styled.td `
     font-weight: normal;
@@ -37,9 +37,9 @@ const Tr = styled.tr `
           background-color: #F3F9F9;
           transition: all 0.3s ease 0s;
         }
-`; */
+`; 
 
-export default function Coin(props) { 
+export default function Coin1(props) { 
   const handleRefreshBtn = (event) => {
     event.preventDefault();
     props.handleRefreshBtn(props.coinId);
@@ -67,7 +67,6 @@ export default function Coin(props) {
 
       {/* 
       { props.isPrivate ? (<td>{props.balance}</td>) : (<td>-</td>)}
-      */}
       
       <td>${props.price}</td>
 
@@ -86,3 +85,4 @@ Coin.propTypes = {
     ticker: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired
 }
+ */

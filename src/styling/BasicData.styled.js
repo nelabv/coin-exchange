@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import Breakpoints from './Breakpoints';
 import Elements from './Elements';
-import GeneralStyling from './GeneralStyling';
 import BannerImg from '../images/coindata-img-banner.jpg';
 import { Menu } from '@styled-icons/boxicons-regular/Menu';
 import { Star } from '@styled-icons/boxicons-solid/Star';
@@ -22,31 +20,31 @@ const MobileActions = styled.div`
     width: 80vw;
     margin: auto;
 
-    @media only screen and (${Breakpoints.tabletMin}) {
+    @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
         display: none;
     }
 `;
 
 const Back = styled(ArrowBack)`
-    color: ${GeneralStyling.palette.offwhite};
+    color: ${props => props.theme.colors.offwhite};
 
-    @media only screen and (${Breakpoints.tabletMin}) and (${Breakpoints.tabletMax}) {
+    @media only screen and (${props => props.theme.breakpoint.tabletMin}) and (${props => props.theme.breakpoint.tabletMax}) {
         height: 30px;
     }
 
-    @media only screen and (${Breakpoints.laptop}) {
+    @media only screen and (${props => props.theme.breakpoint.laptop}) {
         display: none;
     }
 `;
 
 const HamburgerMenu = styled(Menu)`
-    color: ${GeneralStyling.palette.offwhite};
+    color: ${props => props.theme.colors.offwhite};
 
-    @media only screen and (${Breakpoints.tabletMin}) and (${Breakpoints.tabletMax}) {
+    @media only screen and (${props => props.theme.breakpoint.tabletMin}) and (${props => props.theme.breakpoint.tabletMax}) {
         height: 30px;
     }
 
-    @media only screen and (${Breakpoints.laptop}) {
+    @media only screen and (${props => props.theme.breakpoint.laptop}) {
         display: none;
     }
 `;
@@ -103,7 +101,7 @@ const MoreInfo = styled.div`
     border-top-right-radius: 45px;
     margin: -60px 0 0 0;
 
-    @media only screen and (${Breakpoints.tabletMin}) {
+    @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
         border-radius: 0;
     }
 `;
@@ -123,7 +121,7 @@ const RankBox = styled.div`
     padding: 10px;
     width: 120px;
     border-radius: 15px;
-    background-color: ${GeneralStyling.textColor.disabled};
+    background-color: ${props => props.theme.colors.offwhite};
 `;
 
 const StarIcon = styled(Star)`
@@ -135,7 +133,7 @@ const Rank = styled.p`
     padding: 0;
     font-size: 20px;
     font-weight: 400;
-    color: ${GeneralStyling.textColor.gray};
+    color: ${props => props.theme.textColor.gray};
 `;
 
 const Description = styled.p`
@@ -152,7 +150,7 @@ const ButtonsDiv = styled.div`
     padding: 20px 0 20px 0;
     height: 100px;
 
-    @media only screen and (${Breakpoints.tabletMin}) {
+    @media only screen and (${props => props.theme.breakpoint.tabletMax}) {
         flex-direction: row;
         align-items: center;
         padding: 0;
