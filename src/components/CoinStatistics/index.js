@@ -11,7 +11,7 @@ export default function CoinStatistics(props) {
 
     const checkIfNotEmpty = (data) => {
         if (data !== undefined) {
-            return formatNumber(data);
+          return formatNumber(data);
         }
     }
 

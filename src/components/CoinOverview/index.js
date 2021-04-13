@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import CoinStatistics from '../CoinStatistics';
 import CoinBasicInfo from '../CoinBasicInfo'
-import axios from 'axios';
+import LoadingScreen from '../LoadingScreen';
 
 export default function CoinOverview(props) {
     const id = props.match.params.currency;
@@ -12,6 +13,8 @@ export default function CoinOverview(props) {
 
     const [coin, setCoin] = useState({});
     const [statistics, setStatistics] = useState({});
+
+    const [loading, setLoading] = useState(true);
 
     // UTILITY FUNCTIONS --------------------------
 
@@ -33,6 +36,7 @@ export default function CoinOverview(props) {
     // --------------------------------------------
 
     const fetchBasicData = async () => {
+      try {
         // Retrieves a coin's basic information
         const apiCall = await axios.get('https://api.coinpaprika.com/v1/coins/' + id);
         const basicData = await apiCall.data;
@@ -49,7 +53,6 @@ export default function CoinOverview(props) {
         setStatistics(coinStats);
 
         const percent = calculatePercentage(coinStats.circulating_supply, coinStats.total_supply);
-        console.log(" PERCENTAGE IS" + percent);
 
         // Checks if currency has total supply; needs progress bar
 
@@ -59,6 +62,11 @@ export default function CoinOverview(props) {
         } else {
             setProgressBar(true);
         }
+
+        setLoading(false);
+      } catch (e) {
+        console.log(e);
+      }
     }
 
     useEffect(function () {
@@ -81,16 +89,19 @@ export default function CoinOverview(props) {
 
     return (
         <div>
-            <CoinBasicInfo
-                coin={coin}
-
-                goToSourceCode={goToSourceCode}
-                hasSourceCodeLink={hasSourceCodeLink}
-                hasWhitepaper={hasWhitepaper}
-                checkWhitepaper={checkWhitepaper} />
-            <CoinStatistics
-                statistics={statistics}
-                progressBar={progressBar} />
+          {loading ? <LoadingScreen /> : 
+            <>
+              <CoinBasicInfo
+                  coin={coin}
+                  goToSourceCode={goToSourceCode}
+                  hasSourceCodeLink={hasSourceCodeLink}
+                  hasWhitepaper={hasWhitepaper}
+                  checkWhitepaper={checkWhitepaper} />
+              <CoinStatistics
+                  statistics={statistics}
+                  progressBar={progressBar} />
+            </>
+          }
         </div>
     );
 } 

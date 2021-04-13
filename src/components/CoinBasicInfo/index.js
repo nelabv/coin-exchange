@@ -1,6 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Styled from '../../styling/BasicData.styled';
+import {
+  Header,
+  Icon,
+  Section,
+  CoinName, 
+  Ticker, 
+  Info, 
+  Rank, 
+  Text,
+  ButtonsDiv, 
+  Button
+} from './CoinBasicInfoElements';
 
 export default function CoinBasicInfo(props) {
     const fetchData = () => { 
@@ -11,48 +21,34 @@ export default function CoinBasicInfo(props) {
         props.goToSourceCode();
     }
 
-    const iconURL = 'https://icons.bitbot.tools/api/' + props.ticker + '/128x128';
+    const iconURL = 'https://icons.bitbot.tools/api/' + props.coin.symbol + '/128x128';
 
     return (
-        <Styled.MainContainer>
+      <>
+        <Header>
+            <Icon src={iconURL} alt={`${props.coin.name} logo`} />
 
-            <Styled.MobileActions>
-                <Link to='/'>
-                    <Styled.Back size="30"/>
-                </Link>
+            <Section>
+                <CoinName>{props.coin.name}</CoinName>
+                <Ticker>{props.coin.symbol}</Ticker>
+            </Section>
+        </Header>
+              
+        <Info>
+          <Rank>Rank {props.coin.rank}</Rank>
+          
+          <Text>{props.coin.description}</Text>
 
-                {/* <Styled.HamburgerMenu size="30"/> */}
-            </Styled.MobileActions>
+          <ButtonsDiv>
+              { props.hasWhitepaper
+                  ? <Button onClick={fetchData}>Whitepaper</Button>
+                  : null}
 
-            <Styled.Info>
-                <Styled.Icon src={iconURL} alt={`${props.coin.name} logo`} />
-
-                <Styled.Section>
-                    <Styled.H1>{props.coin.name}</Styled.H1>
-                    <Styled.H2>{props.coin.symbol}</Styled.H2>
-                </Styled.Section>
-            </Styled.Info>
-                
-            <Styled.MoreInfo>
-                <Styled.DetailsContainer>
-                    <Styled.RankBox>
-                        <Styled.StarIcon size="20"/>
-                        <Styled.Rank>Rank {props.coin.rank}</Styled.Rank>
-                    </Styled.RankBox>
-                    
-                    <Styled.Description>{props.coin.description}</Styled.Description>
-
-                    <Styled.ButtonsDiv>
-                        { props.hasWhitepaper
-                            ? <Styled.Button onClick={fetchData}>Whitepaper</Styled.Button>
-                            : null}
-
-                        { props.hasSourceCodeLink
-                            ? <Styled.Button onClick={handleSourceCode}>Source Code</Styled.Button>
-                                : null}
-                    </Styled.ButtonsDiv>
-                </Styled.DetailsContainer>
-            </Styled.MoreInfo>
-        </Styled.MainContainer>
+              { props.hasSourceCodeLink
+                  ? <Button onClick={handleSourceCode}>Source Code</Button>
+                      : null}
+          </ButtonsDiv>
+        </Info>
+      </>
     );
 }

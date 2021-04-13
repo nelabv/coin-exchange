@@ -10,7 +10,14 @@ const theme = {
         violet: '#766D7D',
         darkviolet: '#231620',
         black: '#111111',
-        warningRed: '#eb4d4b'
+        warningRed: '#eb4d4b',
+
+        // new colors!!! ----
+        peach: '#FFC492',
+        charcoalblack: '#30333A',
+        deepblack: '#1F242A',
+        orangegray: '#B58C69',
+        gray: '#A7A7A7'
     },
     textColor: {
         black: '#040203',

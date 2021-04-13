@@ -62,10 +62,10 @@ export default function Home(props) {
 
   return (
     <>
-      <Banner />
 
       {loading ? <LoadingScreen /> :
         <>
+          <Banner />
           <CoinTable
               coinData={coinData}
               isPrivate={isPrivate}
