@@ -7,7 +7,7 @@ import {
   Stat,
   LastUpdate
 } from './CoinStatisticsElements'
-import ParentBar from '../ProgressBar/ParentBar';
+import ProgressBar from '../ProgressBar/ProgressBar';
 
 export default function CoinStatistics(props) {
   const formattedDate = new Date(props.statistics.last_updated).toUTCString();
@@ -42,7 +42,7 @@ export default function CoinStatistics(props) {
       </div>
 
       { props.progressBar ?
-        <ParentBar
+        <ProgressBar
           circulatingSupply= {props.statistics.circulating_supply}
           totalSupply= {props.statistics.total_supply}
           ticker= {props.statistics.symbol}/>
