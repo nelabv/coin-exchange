@@ -5,7 +5,8 @@ import Banner from './components/Banner';
 import LoadingScreen from './components/LoadingScreen';
 
 export default function Home(props) {
-  const [isPrivate, setIsPrivate] = useState(false);
+  
+  // const [isPrivate, setIsPrivate] = useState(false);
   const [coinData, setCoinData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -69,7 +70,6 @@ export default function Home(props) {
         <>
           <CoinTable
               coinData={coinData}
-              isPrivate={isPrivate}
               handleRefreshBtn={handleRefreshBtn}
           />
         </>

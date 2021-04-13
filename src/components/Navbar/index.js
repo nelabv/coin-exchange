@@ -8,8 +8,9 @@ import {
 import { NavLink } from 'react-router-dom';
 
 export default function Navbar(props) {
+  // eslint-disable-next-line
   const [isShown, setIsShown] = useState(false);
-
+  // eslint-disable-next-line
   const showLoginBar = () => {
     setIsShown(isShown => !isShown);
   }
