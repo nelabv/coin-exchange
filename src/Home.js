@@ -41,6 +41,7 @@ export default function Home(props) {
   useEffect(function(){
     if(coinData.length === 0){
       fetchCoinData();
+      setInterval(fetchCoinData, 300000);
     }
   })
 
@@ -52,7 +53,7 @@ export default function Home(props) {
       let newData = { ...values };
 
       if(values.key === coinPriceId){
-      newData.price = parseFloat(Number(response.data.quotes.USD.price).toFixed(4));
+        newData.price = parseFloat(Number(response.data.quotes.USD.price).toFixed(4));
       }
       return newData;
   })
@@ -62,10 +63,10 @@ export default function Home(props) {
 
   return (
     <>
+      <Banner />
 
-      {loading ? <LoadingScreen /> :
+      { loading ? <LoadingScreen /> :
         <>
-          <Banner />
           <CoinTable
               coinData={coinData}
               isPrivate={isPrivate}

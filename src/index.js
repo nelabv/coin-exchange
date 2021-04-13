@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
-import theme from './styling/StyledElements/Theme';
+import theme from './styling/Theme';
 import '../src/index.css';
 
 import Home from './Home';

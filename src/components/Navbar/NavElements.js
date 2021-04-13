@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Logo = styled(CoinStack)`
-	color:  ${props => props.theme.colors.red};
+	color:  ${props => props.theme.colors.deepblack};
 `;
 
 export const Link = styled.a`

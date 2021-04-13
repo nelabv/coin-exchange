@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from './CoinTableElements';
 import { Link } from 'react-router-dom';
+import { Form } from './CoinTableElements';
 
 export default function Coin(props) { 
   const handleRefreshBtn = (event) => {
@@ -30,12 +31,6 @@ export default function Coin(props) {
       </td>
       
       <td>${props.price}</td>
-
-      <td>
-          <form action="#" method="post">
-            <Button onClick={handleRefreshBtn}>Refresh</Button>
-          </form>
-      </td>
     </tr>
   );
   

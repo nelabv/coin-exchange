@@ -7,6 +7,10 @@ export const Wrapper = styled.div`
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
+
+  @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
+    padding: 5vh;
+  }
 `;
 
 export const Header = styled.div`

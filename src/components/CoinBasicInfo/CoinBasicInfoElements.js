@@ -46,7 +46,7 @@ export const Info = styled.div`
   background-color: ${props => props.theme.colors.deepblack};
 
   @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
-      border-radius: 0;
+    padding: 5vh;
   }
 `;
 
@@ -71,8 +71,20 @@ export const ButtonsDiv = styled.div`
   justify-content: space-between;
   padding: 20px 0 20px 0;
   height: 150px;
+
+  @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: space-between;
+  }
 `;
 
 export const Button = styled(Btn)`
   width: 100%;
+
+  @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
+    width: 150px;
+    margin-right: 20px;
+  }
 `;

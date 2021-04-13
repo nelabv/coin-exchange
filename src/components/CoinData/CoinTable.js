@@ -10,6 +10,7 @@ export default function CoinTable(props) {
   return (
     <Wrapper>
       <H2>Today's Prices by Market Cap</H2>
+      <p>Data refreshes every 5 minutes</p>
       
       <Table>
         <thead>
@@ -18,7 +19,6 @@ export default function CoinTable(props) {
             <th>Name</th>
             <th></th>
             <th>Last Price</th>
-            <th>Actions</th>
           </tr>
         </thead>
 
@@ -32,8 +32,6 @@ export default function CoinTable(props) {
                     balance ={balance}
                     price={price}
                     rank={rank}
-
-                    handleRefreshBtn = {props.handleRefreshBtn}
                     isPrivate={props.isPrivate}
               />           
             )}

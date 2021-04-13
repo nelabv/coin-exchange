@@ -4,15 +4,6 @@
 
 const theme = {
     colors: {
-        offwhite: '#F0EEE8',
-        orange: '#AA7364',
-        red: '#8F4F53',
-        violet: '#766D7D',
-        darkviolet: '#231620',
-        black: '#111111',
-        warningRed: '#eb4d4b',
-
-        // new colors!!! ----
         peach: '#FFC492',
         charcoalblack: '#30333A',
         deepblack: '#1F242A',

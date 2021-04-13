@@ -14,29 +14,29 @@ export const Table = styled.table`
   border-spacing: 0;
 
   & th {
-    padding: 15px 0 15px 0;
+    padding: 15px 0;
     font-weight: 400;
     color: ${props => props.theme.textColor.gray};
     font-size: 1em;
   }
 
   & td {
-    padding: 20px 0 20px 0;
+    padding: 20px 0;
     border-bottom: 1px solid #F3F3F3;
   }
 `;
 
 export const H2 = styled.h2`
-  color: ${props => props.theme.colors.red};
+  color: ${props => props.theme.colors.charcoalblack};
   font-size: 1.5em;
   line-height: 36pt;
   text-align: left;
 `;
 
 export const Button = styled.button`
-  color: white;
+  color: ${props => props.theme.colors.charcoalblack};
   text-decoration: none;
-  background-color: ${props => props.theme.colors.orange};
+  background-color: ${props => props.theme.colors.peach};
   padding: 10px 12px;
   font-family: 'PT Sans', sans-serif;
   font-size: 0.75em;
@@ -46,7 +46,7 @@ export const Button = styled.button`
 
   &:hover {
       color: ${props => props.theme.textColor.gray};
-      border: 0.1px solid ${props => props.theme.colors.orange};
+      border: 0.1px solid ${props => props.theme.colors.peach};
       background: white;
   }
 
@@ -54,4 +54,8 @@ export const Button = styled.button`
       outline: none;
       box-shadow: none;
   }
+`;
+
+export const Form = styled.form`
+  text-align: center;
 `;
