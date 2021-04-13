@@ -1,43 +1,55 @@
 import React from 'react';
+import {
+  Wrapper,
+  Header,
+  Icon,
+  Section,
+  Stat,
+  LastUpdate
+} from './CoinStatisticsElements'
 import ParentBar from '../ProgressBar/ParentBar';
-import Styled from '../../styling/Statistics.styled';
 
 export default function CoinStatistics(props) {
-    const lastUpdate = new Date(props.lastUpdate).toUTCString();
+  const formattedDate = new Date(props.statistics.last_updated).toUTCString();
 
-    const formatNumber = (supply) => {
-        return supply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const price = props.statistics?.quotes?.USD?.price;
+  const formattedPrice = price.toFixed(2);
+
+  const formatNumber = (supply) => {
+    return supply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  const checkIfNotEmpty = (data) => {
+    if (data !== undefined) {
+      return formatNumber(data);
     }
+  }
 
-    const checkIfNotEmpty = (data) => {
-        if (data !== undefined) {
-          return formatNumber(data);
-        }
-    }
+  return (
+    <Wrapper>
+      <Header>
+        <Icon size="40" />
 
-    return (
-        <Styled.MainContainer>
-            <Styled.Container>
-                <Styled.Header>
-                    <Styled.StatIcon size="40" />
+        <Section>
+          <Stat>Statistics</Stat>
+          <LastUpdate>Last updated: {formattedDate}</LastUpdate>
+        </Section>
+      </Header>
 
-                    <Styled.Section>
-                        <Styled.Stat>Statistics</Styled.Stat>
-                        <Styled.LastUpdate>Last updated: {props.statistics.last_updated}</Styled.LastUpdate>
-                    </Styled.Section>
-                    
-                </Styled.Header>
+      <div>
+        <p>Price: ${formattedPrice}</p>
+        <p>Market Rank: {props.statistics.rank}</p>         
+      </div>
 
-                    <div>
-                        <p>Price: ${props.statistics?.quotes?.USD?.price}</p>
-                        <p>Market Rank: {props.statistics.rank}</p>         
-                    </div>
-
-                    { props.progressBar ? <ParentBar circulatingSupply= {props.statistics.circulating_supply}
-                                                    totalSupply= {props.statistics.total_supply}
-                                                    ticker= {props.statistics.symbol}/>
-                        : <p>Circulating Supply: {checkIfNotEmpty(props.statistics.circulating_supply)} {props.statistics.symbol}</p> }
-            </Styled.Container>
-        </Styled.MainContainer>
-    );
+      { props.progressBar ?
+        <ParentBar
+          circulatingSupply= {props.statistics.circulating_supply}
+          totalSupply= {props.statistics.total_supply}
+          ticker= {props.statistics.symbol}/>
+          :
+        <p>Circulating Supply: {checkIfNotEmpty(props.statistics.circulating_supply)} {props.statistics.symbol}
+        </p>
+      }
+    </Wrapper>
+  );
 } 
