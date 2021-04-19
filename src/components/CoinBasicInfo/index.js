@@ -20,8 +20,8 @@ export default function CoinBasicInfo(props) {
     const handleSourceCode = () => {
         props.goToSourceCode();
     }
-
-    const iconURL = 'https://icons.bitbot.tools/api/' + props.coin.symbol + '/128x128';
+    const tickerLowerCase = props.coin.symbol.toLowerCase();
+    const iconURL= "https://cryptoicon-api.vercel.app/api/icon/"+tickerLowerCase;
 
     return (
       <>
