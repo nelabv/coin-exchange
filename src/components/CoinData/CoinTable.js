@@ -14,6 +14,7 @@ export default function CoinTable(props) {
       <Table>
         <thead>
           <tr>
+            <th>Watchlist</th>
             <th>#</th>
             <th>Name</th>
             <th>Last Price</th>
@@ -31,6 +32,7 @@ export default function CoinTable(props) {
                     price={price}
                     rank={rank}
                     isPrivate={props.isPrivate}
+                    addToWatchlist={props.addToWatchlist}
               />           
             )}
         </tbody>

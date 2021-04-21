@@ -5,10 +5,9 @@ import Banner from './components/Banner';
 import LoadingScreen from './components/LoadingScreen';
 
 export default function Home(props) {
-  
-  // const [isPrivate, setIsPrivate] = useState(false);
-  const [coinData, setCoinData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [coinData, setCoinData] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
 
   const fetchCoinData = async () => {
     try {
@@ -60,7 +59,30 @@ export default function Home(props) {
   })
 
   setCoinData(newCoinData);
-}
+  };
+
+
+
+
+  // WATCHLIST-RELATED FUNCTIONS ---------------------------------
+
+  const addToWatchlist = (id) => {
+    const coinToAdd = coinData.find(coinToAdd => coinToAdd.key === id);
+    console.log("TO ADD" , coinToAdd);
+    const newArray = [...watchlist, coinToAdd];
+    setWatchlist(newArray);
+    console.log(newArray);
+/*     if (watchlist.length === 0) {
+      setWatchlist([coinToAdd]);
+    } else {
+      // watchlist is not empty, we;re going to add another coin
+      const newArray = [...watchlist, coinToAdd];
+      setWatchlist(newArray);
+    } */
+  }
+
+
+
 
   return (
     <>
@@ -71,6 +93,7 @@ export default function Home(props) {
           <CoinTable
               coinData={coinData}
               handleRefreshBtn={handleRefreshBtn}
+              addToWatchlist={addToWatchlist}
           />
         </>
       }

@@ -13,6 +13,7 @@ export default function Coin(props) {
 
   return (
     <tr>
+      <td><button onClick={() => {props.addToWatchlist(props.coinId)}}>Add to Watchlist</button></td>
       <td>{props.rank}</td>
       
       <td>
