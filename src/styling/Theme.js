@@ -8,7 +8,12 @@ const theme = {
         charcoalblack: '#30333A',
         deepblack: '#1F242A',
         orangegray: '#B58C69',
-        gray: '#A7A7A7'
+
+        lightgreen: '#52D8A5',
+        ashgreen: '#82B8C8',
+        darkgreen: '#297E79',
+        gray: '#DEEDF3',
+        pastelblue: '#F7FCFF'
     },
     textColor: {
         black: '#040203',

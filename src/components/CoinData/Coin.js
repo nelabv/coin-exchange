@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { 
+  Icon,
+  StyledLink,
+  DetailsWrapper,
+  Ticker
+  } from './CoinTableElements';
 
 export default function Coin(props) { 
   const tickerLowerCase = props.ticker.toLowerCase();
@@ -11,16 +16,16 @@ export default function Coin(props) {
       <td>{props.rank}</td>
       
       <td>
-        <Link to={'/currencies/' + props.coinId}>
-          <img src={iconURL} alt={`${props.name} logo`}/>
-        </Link>
-        
-      </td>
+        <DetailsWrapper>
+          <StyledLink to={'/currencies/' + props.coinId}>
+            <Icon src={iconURL} alt={`${props.name} logo`}/>
+          </StyledLink>
 
-      <td>
-        <Link to={'/currencies/' + props.coinId}>
-          {props.name} {props.ticker}
-        </Link>
+          <StyledLink to={'/currencies/' + props.coinId}>
+            {props.name}
+          </StyledLink>
+          <Ticker>{props.ticker}</Ticker>
+        </DetailsWrapper>
       </td>
       
       <td>${props.price}</td>

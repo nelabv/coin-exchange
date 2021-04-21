@@ -1,18 +1,21 @@
 import styled from 'styled-components';
+import Background from '../../images/banner-1.jpg';
 
 export const Wrapper = styled.div`
-  background-color: ${props => props.theme.colors.peach};
-  padding: 15vh 5vh 5vh;
+  padding-top: 150px;
+  padding-bottom: 20px;
+  height: 100vh;
+  background-image: url(${Background});
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position: 50% 70%;
 `;
 
 export const H1 = styled.h1`
   padding: 0;
-  margin: 0;
-  color: ${props => props.theme.colors.deepblack};
+  margin: 0 30px;
+  color: ${props => props.theme.colors.lightgreen};
   font-size: 2.5rem;
-`;
-
-export const Subheading = styled.p`
-  font-size: 1.25rem;
-  color: ${props => props.theme.colors.orangegray};
+  font-weight: 800;
+  text-align: center;
 `;

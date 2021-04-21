@@ -10,14 +10,12 @@ export default function CoinTable(props) {
   return (
     <Wrapper>
       <H2>Today's Prices by Market Cap</H2>
-      <p>Data refreshes every 5 minutes</p>
       
       <Table>
         <thead>
           <tr>
             <th>#</th>
             <th>Name</th>
-            <th></th>
             <th>Last Price</th>
           </tr>
         </thead>
