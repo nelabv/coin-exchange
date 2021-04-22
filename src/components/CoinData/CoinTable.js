@@ -1,5 +1,7 @@
 import React from 'react';
 import Coin from './Coin';
+import Watchlist from '../Watchlist';
+import EmptyWatchlist from '../EmptyWatchlist';
 import {
   Wrapper,
   Table,
@@ -10,6 +12,12 @@ export default function CoinTable(props) {
   return (
     <Wrapper>
       <H2>Today's Prices by Market Cap</H2>
+      <p>Your Watchlist</p>
+      
+      {props.isWatchlistEmpty ? 
+        <EmptyWatchlist /> :
+        <Watchlist/>
+      }
       
       <Table>
         <thead>

@@ -6,6 +6,7 @@ import LoadingScreen from './components/LoadingScreen';
 
 export default function Home(props) {
   const [loading, setLoading] = useState(false);
+  const [isWatchlistEmpty, setIsWatchlistEmpty] = useState(true);
   const [coinData, setCoinData] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
 
@@ -43,6 +44,7 @@ export default function Home(props) {
       fetchCoinData();
       setInterval(fetchCoinData, 300000);
     }
+    checkIfWatchlistStorageIsEmpty();
   })
 
   const handleRefreshBtn = async (coinPriceId) => {
@@ -57,32 +59,28 @@ export default function Home(props) {
       }
       return newData;
   })
-
-  setCoinData(newCoinData);
+    setCoinData(newCoinData);
   };
-
-
-
 
   // WATCHLIST-RELATED FUNCTIONS ---------------------------------
 
-  const addToWatchlist = (id) => {
-    const coinToAdd = coinData.find(coinToAdd => coinToAdd.key === id);
-    console.log("TO ADD" , coinToAdd);
-    const newArray = [...watchlist, coinToAdd];
-    setWatchlist(newArray);
-    console.log(newArray);
-/*     if (watchlist.length === 0) {
-      setWatchlist([coinToAdd]);
+  const checkIfWatchlistStorageIsEmpty = () => {
+    if(localStorage.getItem("watchlist") !== null) {
+      setIsWatchlistEmpty(false);
     } else {
-      // watchlist is not empty, we;re going to add another coin
-      const newArray = [...watchlist, coinToAdd];
-      setWatchlist(newArray);
-    } */
+      setIsWatchlistEmpty(true);
+    }
   }
 
+  const addToWatchlist = (id) => {
+    const coinToAdd = coinData.find(coinToAdd => coinToAdd.key === id);
 
+    const newArray = [...watchlist, coinToAdd];
+    localStorage.setItem("watchlist", JSON.stringify(newArray));
+    setWatchlist(newArray);
 
+    checkIfWatchlistStorageIsEmpty();
+  }; 
 
   return (
     <>
@@ -94,6 +92,8 @@ export default function Home(props) {
               coinData={coinData}
               handleRefreshBtn={handleRefreshBtn}
               addToWatchlist={addToWatchlist}
+              isWatchlistEmpty={isWatchlistEmpty}
+              watchlist={watchlist}
           />
         </>
       }
