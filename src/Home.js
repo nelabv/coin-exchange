@@ -74,12 +74,18 @@ export default function Home(props) {
 
   const addToWatchlist = (id) => {
     const coinToAdd = coinData.find(coinToAdd => coinToAdd.key === id);
+    const checkForCoinDuplicates = watchlist.includes(coinToAdd);
+    console.log(checkForCoinDuplicates);
 
-    const newArray = [...watchlist, coinToAdd];
-    localStorage.setItem("watchlist", JSON.stringify(newArray));
-    setWatchlist(newArray);
-
-    checkIfWatchlistStorageIsEmpty();
+    if (checkForCoinDuplicates === true) {
+      alert("Coin already in watchlist!");
+    } else {
+      const newArray = [...watchlist, coinToAdd];
+      localStorage.setItem("watchlist", JSON.stringify(newArray));
+      setWatchlist(newArray);
+  
+      checkIfWatchlistStorageIsEmpty();
+    }
   }; 
 
   return (
