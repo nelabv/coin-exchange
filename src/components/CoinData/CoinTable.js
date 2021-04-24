@@ -16,7 +16,8 @@ export default function CoinTable(props) {
       
       {props.isWatchlistEmpty ? 
         <EmptyWatchlist /> :
-        <Watchlist/>
+        <Watchlist
+          removeFromWatchlist={props.removeFromWatchlist}/>
       }
       
       <Table>

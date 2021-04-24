@@ -64,12 +64,18 @@ export default function Home(props) {
 
   // WATCHLIST-RELATED FUNCTIONS ---------------------------------
 
+  const arrangeIncreasingOrder = (array) => {
+    const sortedArray = array.sort(function(a, b)
+        { return a.rank - b.rank});
+    return sortedArray;
+  }
+
   const checkIfWatchlistStorageIsEmpty = () => {
-    if(localStorage.getItem("watchlist") !== null) {
-      setIsWatchlistEmpty(false);
-    } else {
+    if (localStorage.getItem("watchlist") === "[]") {
       setIsWatchlistEmpty(true);
-    }
+    } if (localStorage.getItem("watchlist") !== null) {
+      setIsWatchlistEmpty(false);
+    } 
   }
 
   const addToWatchlist = (id) => {
@@ -80,13 +86,25 @@ export default function Home(props) {
     if (checkForCoinDuplicates === true) {
       alert("Coin already in watchlist!");
     } else {
-      const newArray = [...watchlist, coinToAdd];
+      const newArray = arrangeIncreasingOrder([...watchlist, coinToAdd]);
       localStorage.setItem("watchlist", JSON.stringify(newArray));
       setWatchlist(newArray);
-  
       checkIfWatchlistStorageIsEmpty();
     }
   }; 
+
+  const removeFromWatchlist = (coin) => {
+    const updatedArray = JSON.parse(localStorage.getItem("watchlist"));
+    const index = updatedArray.findIndex(x => x.key === coin.key);
+    if (index > -1) {
+      updatedArray.splice(index, 1);
+    }
+    setWatchlist(updatedArray);
+    localStorage.setItem("watchlist", JSON.stringify(updatedArray));
+    checkIfWatchlistStorageIsEmpty();
+
+    // UPDATE WATCHLIST 
+  }
 
   return (
     <>
@@ -100,6 +118,7 @@ export default function Home(props) {
               addToWatchlist={addToWatchlist}
               isWatchlistEmpty={isWatchlistEmpty}
               watchlist={watchlist}
+              removeFromWatchlist={removeFromWatchlist}
           />
         </>
       }

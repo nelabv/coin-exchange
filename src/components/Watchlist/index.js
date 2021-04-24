@@ -15,9 +15,9 @@ export default function Watchlist(props) {
             </tr>
           </thead>
           <tbody>
-        {watchlist.map((list) => 
+        {watchlist.map((list, index) => 
           <tr key={list.key}>
-            <td><button>Remove from Watchlist</button></td>
+            <td><button onClick={() => {props.removeFromWatchlist(list);}}>Remove from Watchlist</button></td>
             <td>{list.name} </td>
             <td>{list.rank} </td>
             <td>$ {list.price} </td>
