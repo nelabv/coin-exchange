@@ -1,14 +1,17 @@
 import React from 'react';
+import {
+  Table 
+} from '../CoinData/CoinTableElements';
 
 export default function Watchlist(props) { 
   const watchlist = JSON.parse(localStorage.getItem("watchlist"));
 
   return (
     <div>
-      <table>
+      <Table>
         <thead>
             <tr>
-              <th>Watchlist</th>
+              <th></th>
               <th>Name</th>
               <th>Market Rank</th>
               <th>Last Price</th>
@@ -18,13 +21,17 @@ export default function Watchlist(props) {
         {watchlist.map((list, index) => 
           <tr key={list.key}>
             <td><button onClick={() => {props.removeFromWatchlist(list);}}>Remove from Watchlist</button></td>
-            <td>{list.name} </td>
+            <td>
+              <div>
+              {list.name} {list.ticker}
+              </div>
+            </td>
             <td>{list.rank} </td>
             <td>$ {list.price} </td>
           </tr>
         )}
   </tbody>
-      </table>
+      </Table>
 
     </div>
   );

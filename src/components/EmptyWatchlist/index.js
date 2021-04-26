@@ -1,9 +1,15 @@
 import React from 'react';
+import {
+  Star,
+  Wrapper,
+  Heading
+} from './EmptyWatchlistElements';
 
 export default function EmptyWatchlist(props) { 
   return (
-    <div>
-      No starred coins at the moment.
-    </div>
+    <Wrapper>
+      <Star size="50" />
+      <Heading>No starred coins at the moment.</Heading>
+    </Wrapper>
   );
 }

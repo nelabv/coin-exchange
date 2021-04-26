@@ -12,7 +12,7 @@ export default function CoinTable(props) {
   return (
     <Wrapper>
       <H2>Today's Prices by Market Cap</H2>
-      <p>Your Watchlist</p>
+      <H2>Your Watchlist</H2>
       
       {props.isWatchlistEmpty ? 
         <EmptyWatchlist /> :
