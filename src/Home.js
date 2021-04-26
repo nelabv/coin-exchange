@@ -10,6 +10,9 @@ export default function Home(props) {
   const [coinData, setCoinData] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
 
+  const watchlistLocalStorage = localStorage.getItem("watchlist");
+  const parsedWatchlist = JSON.parse(watchlistLocalStorage);
+
   const fetchCoinData = async () => {
     try {
       setLoading(true);
@@ -44,7 +47,6 @@ export default function Home(props) {
       fetchCoinData();
       setInterval(fetchCoinData, 300000);
     }
-    checkIfWatchlistStorageIsEmpty();
   })
 
   const handleRefreshBtn = async (coinPriceId) => {
@@ -70,10 +72,14 @@ export default function Home(props) {
     return sortedArray;
   }
 
-  const checkIfWatchlistStorageIsEmpty = () => {
-    if (localStorage.getItem("watchlist") === "[]") {
+  const checkIfWatchlistStorageIsEmpty = (array) => {
+    if (parsedWatchlist.length === 0) {
+      localStorage.removeItem("watchlist");
+      setWatchlist([]);
       setIsWatchlistEmpty(true);
-    } if (localStorage.getItem("watchlist") !== null) {
+    } else {
+      setWatchlist(array);
+      localStorage.setItem("watchlist", JSON.stringify(array));
       setIsWatchlistEmpty(false);
     } 
   }
@@ -81,29 +87,24 @@ export default function Home(props) {
   const addToWatchlist = (id) => {
     const coinToAdd = coinData.find(coinToAdd => coinToAdd.key === id);
     const checkForCoinDuplicates = watchlist.includes(coinToAdd);
-    console.log(checkForCoinDuplicates);
 
     if (checkForCoinDuplicates === true) {
       alert("Coin already in watchlist!");
     } else {
       const newArray = arrangeIncreasingOrder([...watchlist, coinToAdd]);
-      localStorage.setItem("watchlist", JSON.stringify(newArray));
       setWatchlist(newArray);
-      checkIfWatchlistStorageIsEmpty();
+      localStorage.setItem("watchlist", JSON.stringify(newArray));
+      setIsWatchlistEmpty(false);
     }
   }; 
 
   const removeFromWatchlist = (coin) => {
-    const updatedArray = JSON.parse(localStorage.getItem("watchlist"));
+    const updatedArray = parsedWatchlist;
     const index = updatedArray.findIndex(x => x.key === coin.key);
     if (index > -1) {
       updatedArray.splice(index, 1);
     }
-    setWatchlist(updatedArray);
-    localStorage.setItem("watchlist", JSON.stringify(updatedArray));
-    checkIfWatchlistStorageIsEmpty();
-
-    // UPDATE WATCHLIST 
+    checkIfWatchlistStorageIsEmpty(updatedArray);
   }
 
   return (
