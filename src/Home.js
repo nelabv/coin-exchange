@@ -5,13 +5,23 @@ import Banner from './components/Banner';
 import LoadingScreen from './components/LoadingScreen';
 
 export default function Home(props) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState();
   const [isWatchlistEmpty, setIsWatchlistEmpty] = useState(true);
   const [coinData, setCoinData] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
 
   const watchlistLocalStorage = localStorage.getItem("watchlist");
   const parsedWatchlist = JSON.parse(watchlistLocalStorage);
+
+  const getLocalStorage = () => {
+    if (parsedWatchlist === null) {
+      setIsWatchlistEmpty(true);
+    } else {
+      setWatchlist(parsedWatchlist);
+      localStorage.setItem("watchlist", JSON.stringify(parsedWatchlist));
+      setIsWatchlistEmpty(false);
+    } 
+  }
 
   const fetchCoinData = async () => {
     try {
@@ -49,6 +59,8 @@ export default function Home(props) {
     }
   })
 
+  useEffect(getLocalStorage, []);
+
   const handleRefreshBtn = async (coinPriceId) => {
     const tickerLink = 'https://api.coinpaprika.com/v1/tickers/';
     const response = await axios.get(tickerLink + coinPriceId);
@@ -68,7 +80,7 @@ export default function Home(props) {
 
   const arrangeIncreasingOrder = (array) => {
     const sortedArray = array.sort(function(a, b)
-        { return a.rank - b.rank});
+      { return a.rank - b.rank});
     return sortedArray;
   }
 

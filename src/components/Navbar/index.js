@@ -19,9 +19,9 @@ export default function Navbar(props) {
     <>
       <Nav>
         <Wrapper>
-          <NavLink to="/">
+           <a href="/">
             <Logo size="30" />
-          </NavLink>
+          </a>
           
           <Link href="https://github.com/nelabv/coin-exchange" target="_blank">
             Source code
