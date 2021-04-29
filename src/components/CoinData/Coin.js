@@ -4,7 +4,9 @@ import {
   Icon,
   StyledLink,
   DetailsWrapper,
-  Ticker
+  Ticker,
+  WatchBtn,
+  Rank
   } from './CoinTableElements';
 
 export default function Coin(props) { 
@@ -13,11 +15,11 @@ export default function Coin(props) {
 
   return (
     <tr>
-      <td><button onClick={() => {props.addToWatchlist(props.coinId)}}>Add to Watchlist</button></td>
-      <td>{props.rank}</td>
+      <td><WatchBtn size="30" onClick={() => {props.addToWatchlist(props.coinId)}}>WATCH</WatchBtn></td>
       
       <td>
         <DetailsWrapper>
+          <Rank>{props.rank}</Rank>
           <StyledLink to={'/currencies/' + props.coinId}>
             <Icon src={iconURL} alt={`${props.name} logo`}/>
           </StyledLink>

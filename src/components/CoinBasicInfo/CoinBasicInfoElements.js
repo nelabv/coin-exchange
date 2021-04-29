@@ -1,19 +1,18 @@
 import styled from 'styled-components';
-import { Button as Btn } from '../../styling/StandardElements';
+import { WatchBtn as Btn } from '../CoinData/CoinTableElements'
 
 export const Header = styled.div`
   display: flex;
   align-items: center;
-  padding: 20vh 5vh 10vh ;
+  padding-top: 15vh;
+  padding-bottom: 10px;
   margin: auto;
-  background-color: ${props => props.theme.colors.peach};
 `;
 
 export const Icon = styled.img`
   order: 1;
   max-width: 40px;
   max-height: 40px;
-  
 `;
 
 export const Section = styled.section`
@@ -24,67 +23,65 @@ export const Section = styled.section`
 `;
 
 export const CoinName = styled.h1`
-  font-size: 1.5em;
-  font-weight: 700;
+  font-size: 1.75rem;
+  font-weight: 600;
   color: ${props => props.theme.colors.deepblack};
-  padding: 0;
-  margin: 0;
 `;
 
 export const Ticker = styled.p`
-  color: ${props => props.theme.colors.orangegray};
-  font-weight: 200;
-  padding: 0;
-  margin: 0;
+  color: ${props => props.theme.colors.deepblack};
+  font-size: 1.25rem;
+`;
+
+export const PriceTag = styled.p`
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-spacing: 2px;
+  color: ${props => props.theme.colors.disabled};
+  margin-top: 20px;
+`;
+export const Price = styled.p`
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
 `;
 
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 5vh;
-  background-color: ${props => props.theme.colors.deepblack};
+  padding-bottom: 30px;
 
   @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
-    padding: 5vh;
+    
   }
 `;
 
 export const Rank = styled.p`
-    margin: 0;
-    padding: 0;
-    font-weight: 400;
-    color: ${props => props.theme.colors.gray};
+    margin: 20px 0;
+    font-weight: 600;
+    color: ${props => props.theme.colors.deepblack};
 `;
 
-export const Text = styled.p`
-  order: 2;
-  color: white;
-  line-height: 32px;
+export const Description = styled.p`
+  padding-bottom: 20px;
 `;
 
-export const ButtonsDiv = styled.div`
-  order: 3;
+export const ButtonHolder = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 0 20px 0;
-  height: 150px;
-
-  @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
-    flex-direction: row;
-    width: 100%;
-    justify-content: flex-start;
-    align-items: space-between;
-  }
+  justify-content: flex-start;
 `;
 
-export const Button = styled(Btn)`
-  width: 100%;
+export const WhitepaperBtn = styled(Btn)`
+  width: 120px;
+  margin: 10px 0;
+  margin-right: 20px;
+  background-color: ${props => props.theme.colors.lightgreen};
+  color: white;
+`;
 
-  @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
-    width: 150px;
-    margin-right: 20px;
-  }
+export const SourceCodeBtn = styled(WhitepaperBtn)`
+  background-color: white;
+  color:  ${props => props.theme.colors.lightgreen};
+  border: 1px solid ${props => props.theme.colors.lightgreen};
 `;

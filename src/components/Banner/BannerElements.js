@@ -1,21 +1,24 @@
 import styled from 'styled-components';
-import Background from '../../images/banner-1.jpg';
 
 export const Wrapper = styled.div`
-  padding-top: 150px;
+  padding-top: 100px;
   padding-bottom: 20px;
-  height: 100vh;
-  background-image: url(${Background});
-  background-size: 500px;
-  background-repeat: no-repeat;
-  background-position: 50% 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const H1 = styled.h1`
-  padding: 0;
-  margin: 0 30px;
-  color: ${props => props.theme.colors.lightgreen};
+  order: 1;
   font-size: 2.5rem;
-  font-weight: 800;
+  line-height: 1.3;
   text-align: center;
+  color: ${props => props.theme.colors.lightgreen};
+`;
+
+export const Img = styled.img`
+  order: 2;
+  width: 100%;
+  height: 100%;
 `;

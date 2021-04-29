@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Wrapper } from './CoinOverviewElements';
 import CoinStatistics from '../CoinStatistics';
 import CoinBasicInfo from '../CoinBasicInfo'
 import LoadingScreen from '../LoadingScreen';
@@ -88,11 +89,12 @@ export default function CoinOverview(props) {
     }
 
     return (
-        <div>
+        <Wrapper>
           {loading ? <LoadingScreen /> : 
             <>
               <CoinBasicInfo
                   coin={coin}
+                  price={statistics.quotes.USD.price}
                   goToSourceCode={goToSourceCode}
                   hasSourceCodeLink={hasSourceCodeLink}
                   hasWhitepaper={hasWhitepaper}
@@ -102,6 +104,6 @@ export default function CoinOverview(props) {
                   progressBar={progressBar} />
             </>
           }
-        </div>
+        </Wrapper>
     );
 } 

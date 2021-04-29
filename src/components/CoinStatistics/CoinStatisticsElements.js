@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Stats } from '@styled-icons/boxicons-regular/Stats';
 
 export const Wrapper = styled.div`
-  padding: 3vh 5vh;
   background: white;
   align-items: flex-start;
   flex-direction: column;

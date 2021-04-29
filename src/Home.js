@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import CoinTable from './components/CoinData/CoinTable'
 import Banner from './components/Banner';
 import LoadingScreen from './components/LoadingScreen';
+
+const Wrapper = styled.div`
+  padding: 0 5vw;
+  width: 100%;
+  background-color: white;
+`;
 
 export default function Home(props) {
   const [loading, setLoading] = useState();
@@ -55,7 +62,6 @@ export default function Home(props) {
   useEffect(function(){
     if(coinData.length === 0){
       fetchCoinData();
-      setInterval(fetchCoinData, 300000);
     }
   })
 
@@ -120,7 +126,7 @@ export default function Home(props) {
   }
 
   return (
-    <>
+    <Wrapper>
       <Banner />
 
       { loading ? <LoadingScreen /> :
@@ -135,6 +141,6 @@ export default function Home(props) {
           />
         </>
       }
-    </> 
+    </Wrapper> 
   );
 } 

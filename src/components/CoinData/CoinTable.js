@@ -5,14 +5,20 @@ import EmptyWatchlist from '../EmptyWatchlist';
 import {
   Wrapper,
   Table,
-  H2
+  H2,
+  WatchlistTitle,
+  Star,
+  Section
 } from './CoinTableElements';
  
 export default function CoinTable(props) {
   return (
     <Wrapper>
       <H2>Today's Prices by Market Cap</H2>
-      <H2>Your Watchlist</H2>
+      <Section>
+        <Star size="20" />
+        <WatchlistTitle>Your Watchlist</WatchlistTitle>
+      </Section>
       
       {props.isWatchlistEmpty ? 
         <EmptyWatchlist /> :
@@ -21,12 +27,17 @@ export default function CoinTable(props) {
       }
       
       <Table>
+        <colgroup>
+          <col span="1" styles="width: 25%;"/>
+          <col span="1" styles="width: 50%;"/>
+          <col span="1" styles="width: 25%;"/>
+        </colgroup>
+
         <thead>
           <tr>
-            <th>Watchlist</th>
-            <th>#</th>
-            <th>Name</th>
-            <th>Last Price</th>
+            <th></th>
+            <th>NAME</th>
+            <th>PRICE</th>
           </tr>
         </thead>
 

@@ -1,10 +1,17 @@
 import React from 'react';
 import {
-  Table 
+  Table,
+  UnwatchBtn,
+  Icon,
+  StyledLink,
+  DetailsWrapper,
+  Ticker,
+  Rank
 } from '../CoinData/CoinTableElements';
 
 export default function Watchlist(props) { 
   const watchlist = JSON.parse(localStorage.getItem("watchlist"));
+  const iconURL= "https://cryptoicon-api.vercel.app/api/icon/";
 
   return (
     <div>
@@ -12,25 +19,33 @@ export default function Watchlist(props) {
         <thead>
             <tr>
               <th></th>
-              <th>Name</th>
-              <th>Market Rank</th>
-              <th>Last Price</th>
+              <th>NAME</th>
+              <th>PRICE</th>
             </tr>
-          </thead>
-          <tbody>
-        {watchlist.map((list, index) => 
-          <tr key={list.key}>
-            <td><button onClick={() => {props.removeFromWatchlist(list);}}>Remove from Watchlist</button></td>
-            <td>
-              <div>
-              {list.name} {list.ticker}
-              </div>
-            </td>
-            <td>{list.rank} </td>
-            <td>$ {list.price} </td>
-          </tr>
-        )}
-  </tbody>
+        </thead>
+
+
+        <tbody>
+          {watchlist.map((list, index) => 
+            <tr key={list.key}>
+              <td><UnwatchBtn onClick={() => {props.removeFromWatchlist(list);}}>UNWATCH</UnwatchBtn></td>
+              <td>
+                <Rank>{list.rank}</Rank>
+                  <DetailsWrapper>
+                  <StyledLink to={'/currencies/' + list.key}>
+                    <Icon src={iconURL + `${list.ticker}`.toLowerCase()} alt={`${list.name} logo`}/>
+                  </StyledLink>
+
+                  <StyledLink to={'/currencies/' + list.key}>
+                    {list.name}
+                  </StyledLink>
+                  <Ticker>{list.ticker}</Ticker>
+                </DetailsWrapper>
+              </td>
+              <td>$ {list.price} </td>
+            </tr>
+          )}
+        </tbody>
       </Table>
 
     </div>

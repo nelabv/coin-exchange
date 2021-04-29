@@ -5,11 +5,14 @@ import {
   Section,
   CoinName, 
   Ticker, 
+  PriceTag,
+  Price,
   Info, 
-  Rank, 
-  Text,
-  ButtonsDiv, 
-  Button
+  Rank,
+  Description, 
+  ButtonHolder,
+  WhitepaperBtn,
+  SourceCodeBtn
 } from './CoinBasicInfoElements';
 
 export default function CoinBasicInfo(props) {
@@ -33,21 +36,24 @@ export default function CoinBasicInfo(props) {
                 <Ticker>{props.coin.symbol}</Ticker>
             </Section>
         </Header>
+
+        <PriceTag>LAST PRICE</PriceTag>
+        <Price>${props.price}</Price>
               
         <Info>
           <Rank>Rank {props.coin.rank}</Rank>
           
-          <Text>{props.coin.description}</Text>
+          <Description>{props.coin.description}</Description>
+          
+          <ButtonHolder>
+            { props.hasWhitepaper
+                ? <WhitepaperBtn onClick={fetchData}>WHITEPAPER</WhitepaperBtn>
+                : null}
 
-          <ButtonsDiv>
-              { props.hasWhitepaper
-                  ? <Button onClick={fetchData}>Whitepaper</Button>
-                  : null}
-
-              { props.hasSourceCodeLink
-                  ? <Button onClick={handleSourceCode}>Source Code</Button>
-                      : null}
-          </ButtonsDiv>
+            { props.hasSourceCodeLink
+                ? <SourceCodeBtn onClick={handleSourceCode}>SOURCE CODE</SourceCodeBtn>
+                    : null}
+          </ButtonHolder>
         </Info>
       </>
     );
