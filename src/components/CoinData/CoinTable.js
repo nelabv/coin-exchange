@@ -8,13 +8,13 @@ import {
   H2,
   WatchlistTitle,
   Star,
-  Section
+  Section,
+  Ticker as Subtext
 } from './CoinTableElements';
  
 export default function CoinTable(props) {
   return (
     <Wrapper>
-      <H2>Today's Prices by Market Cap</H2>
       <Section>
         <Star size="20" />
         <WatchlistTitle>Your Watchlist</WatchlistTitle>
@@ -25,13 +25,11 @@ export default function CoinTable(props) {
         <Watchlist
           removeFromWatchlist={props.removeFromWatchlist}/>
       }
-      
+
+      <H2>Top 20 Digital Currencies by Market Cap</H2>
+      <Subtext>DATA REFRESHES EVERY 5 MINUTES</Subtext>
+
       <Table>
-        <colgroup>
-          <col span="1" styles="width: 25%;"/>
-          <col span="1" styles="width: 50%;"/>
-          <col span="1" styles="width: 25%;"/>
-        </colgroup>
 
         <thead>
           <tr>

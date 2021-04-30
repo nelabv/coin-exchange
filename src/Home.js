@@ -4,11 +4,13 @@ import styled from 'styled-components';
 import CoinTable from './components/CoinData/CoinTable'
 import Banner from './components/Banner';
 import LoadingScreen from './components/LoadingScreen';
+import Footer from './components/Footer';
 
 const Wrapper = styled.div`
   padding: 0 5vw;
+  padding-bottom: 50px;
   width: 100%;
-  background-color: white;
+  background-color: ${props => props.theme.colors.pastelblue};
 `;
 
 export default function Home(props) {
@@ -68,6 +70,7 @@ export default function Home(props) {
   useEffect(getLocalStorage, []);
 
   const handleRefreshBtn = async (coinPriceId) => {
+    alert("clicked");
     const tickerLink = 'https://api.coinpaprika.com/v1/tickers/';
     const response = await axios.get(tickerLink + coinPriceId);
 
@@ -126,6 +129,7 @@ export default function Home(props) {
   }
 
   return (
+    <>
     <Wrapper>
       <Banner />
 
@@ -142,5 +146,8 @@ export default function Home(props) {
         </>
       }
     </Wrapper> 
+    
+    <Footer />
+    </>
   );
 } 

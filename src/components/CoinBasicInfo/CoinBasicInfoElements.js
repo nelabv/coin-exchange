@@ -51,10 +51,6 @@ export const Info = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   padding-bottom: 30px;
-
-  @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
-    
-  }
 `;
 
 export const Rank = styled.p`

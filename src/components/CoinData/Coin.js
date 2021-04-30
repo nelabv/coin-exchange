@@ -15,9 +15,11 @@ export default function Coin(props) {
 
   return (
     <tr>
-      <td><WatchBtn size="30" onClick={() => {props.addToWatchlist(props.coinId)}}>WATCH</WatchBtn></td>
+      <td style={{width: '30%'}}>
+        <WatchBtn size="30" onClick={() => {props.addToWatchlist(props.coinId)}}>WATCH</WatchBtn>
+      </td>
       
-      <td>
+      <td style={{width: '35%'}}>
         <DetailsWrapper>
           <Rank>{props.rank}</Rank>
           <StyledLink to={'/currencies/' + props.coinId}>
@@ -31,7 +33,7 @@ export default function Coin(props) {
         </DetailsWrapper>
       </td>
       
-      <td>${props.price}</td>
+      <td style={{width: '35%'}}>${props.price}</td>
     </tr>
   );
   

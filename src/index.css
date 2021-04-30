@@ -1,4 +1,4 @@
-body {
+html, body {
   overflow-x: hidden;
   font-family: 'Noto Sans', sans-serif;
   font-weight: 400;
@@ -6,6 +6,14 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  display: block;
+  flex: 1 0 auto;
 }
 
 code {

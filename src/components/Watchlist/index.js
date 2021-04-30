@@ -28,8 +28,11 @@ export default function Watchlist(props) {
         <tbody>
           {watchlist.map((list, index) => 
             <tr key={list.key}>
-              <td><UnwatchBtn onClick={() => {props.removeFromWatchlist(list);}}>UNWATCH</UnwatchBtn></td>
-              <td>
+              <td style={{width: '30%'}}>
+                <UnwatchBtn onClick={() => {props.removeFromWatchlist(list);}}>UNWATCH</UnwatchBtn>
+              </td>
+              
+              <td style={{width: '35%'}}>
                 <Rank>{list.rank}</Rank>
                   <DetailsWrapper>
                   <StyledLink to={'/currencies/' + list.key}>
@@ -42,7 +45,8 @@ export default function Watchlist(props) {
                   <Ticker>{list.ticker}</Ticker>
                 </DetailsWrapper>
               </td>
-              <td>$ {list.price} </td>
+
+              <td style={{width: '35%'}}>$ {list.price} </td>
             </tr>
           )}
         </tbody>

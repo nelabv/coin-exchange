@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  Nav,
-  Logo, 
+  Nav, 
   Wrapper,
-  Link
+  Link,
+  Logo,
+  SourceCodeBtn
 } from './NavElements';
 
 export default function Navbar(props) {
@@ -11,12 +12,12 @@ export default function Navbar(props) {
     <>
       <Nav>
         <Wrapper>
-           <a href="/">
-            <Logo size="30" />
+          <a href="/" style={{ textDecoration: 'none' }}>
+            <Logo>CPC</Logo>
           </a>
           
           <Link href="https://github.com/nelabv/coin-exchange" target="_blank">
-            Source code
+            <SourceCodeBtn>SOURCE CODE</SourceCodeBtn>
           </Link>
         </Wrapper>
       </Nav>

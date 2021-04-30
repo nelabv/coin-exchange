@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Wrapper } from './CoinOverviewElements';
-import CoinStatistics from '../CoinStatistics';
+//import CoinStatistics from '../CoinStatistics';
 import CoinBasicInfo from '../CoinBasicInfo'
 import LoadingScreen from '../LoadingScreen';
+import Footer from '../Footer';
 
 export default function CoinOverview(props) {
     const id = props.match.params.currency;
@@ -89,6 +90,7 @@ export default function CoinOverview(props) {
     }
 
     return (
+      <>
         <Wrapper>
           {loading ? <LoadingScreen /> : 
             <>
@@ -99,11 +101,14 @@ export default function CoinOverview(props) {
                   hasSourceCodeLink={hasSourceCodeLink}
                   hasWhitepaper={hasWhitepaper}
                   checkWhitepaper={checkWhitepaper} />
-              <CoinStatistics
+{/*               <CoinStatistics
                   statistics={statistics}
-                  progressBar={progressBar} />
+                  progressBar={progressBar} /> */}
             </>
           }
         </Wrapper>
+
+        <Footer />
+    </>
     );
 } 

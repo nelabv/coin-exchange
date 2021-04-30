@@ -40,5 +40,5 @@ export const LastUpdate = styled.p`
   padding: 5px 0;
   margin: 0;
   font-size: 0.75em;
-  color: ${props => props.theme.textColor.gray};
+  color: ${props => props.theme.colors.disabled};
 `;
