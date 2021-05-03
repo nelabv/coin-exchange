@@ -5,5 +5,13 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px 0;
-  `;
+  background-color: white;
+  padding: 50px 0;
+  border-radius: 15px;
+`;
+
+export const Text = styled.p`
+  line-spacing: 1px;
+  margin-top: 20px;
+  color: ${props => props.theme.colors.disabled};
+`;

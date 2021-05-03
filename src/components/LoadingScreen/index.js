@@ -1,7 +1,8 @@
 import React from 'react';
 import FadeLoader from "react-spinners/FadeLoader";
 import {
-  Wrapper
+  Wrapper,
+  Text
 } from './LoadingScreenElements';
 
 function LoadingScreen(props) {
@@ -9,7 +10,7 @@ function LoadingScreen(props) {
     <Wrapper>
       <FadeLoader size={40} />
 
-      <p>Fetching the latest data</p>
+      <Text>FETCHING THE LATEST DATA</Text>
     </Wrapper>
   )
 }

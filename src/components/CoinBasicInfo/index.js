@@ -12,7 +12,8 @@ import {
   Description, 
   ButtonHolder,
   WhitepaperBtn,
-  SourceCodeBtn
+  SourceCodeBtn,
+  PriceWrapper
 } from './CoinBasicInfoElements';
 
 export default function CoinBasicInfo(props) {
@@ -37,8 +38,10 @@ export default function CoinBasicInfo(props) {
             </Section>
         </Header>
 
-        <PriceTag>LAST PRICE</PriceTag>
-        <Price>${props.price}</Price>
+        <PriceWrapper>
+          <PriceTag>LAST PRICE</PriceTag>
+          <Price>${props.price}</Price>
+        </PriceWrapper>
               
         <Info>
           <Rank>Rank {props.coin.rank}</Rank>

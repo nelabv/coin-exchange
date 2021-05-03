@@ -35,15 +35,15 @@ export const Ticker = styled.p`
 
 export const PriceTag = styled.p`
   font-size: 0.75rem;
-  font-weight: 600;
   line-spacing: 2px;
-  color: ${props => props.theme.colors.disabled};
-  margin-top: 20px;
+  color: white;
+  opacity: 0.75;
 `;
 export const Price = styled.p`
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  color: white;
+  line-spacing: 1px;
 `;
 
 export const Info = styled.div`
@@ -80,4 +80,12 @@ export const SourceCodeBtn = styled(WhitepaperBtn)`
   background-color: white;
   color:  ${props => props.theme.colors.lightgreen};
   border: 1px solid ${props => props.theme.colors.lightgreen};
+`;
+
+export const PriceWrapper = styled.section`
+  padding: 10px 20px;
+  width: max-content;
+  border-radius: 20px;
+  margin-top: 20px;
+  background-color: ${props => props.theme.colors.darkgreen};
 `;
