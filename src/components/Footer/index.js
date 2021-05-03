@@ -9,10 +9,12 @@ import {
  export default function Footer(props) {
    return (
      <Wrapper>
-       <LogoWrapper>
-         <Logo size="30" />
-         <Text>nelabv</Text>
-       </LogoWrapper>
+       <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+        <LogoWrapper>
+          <Logo size="30" />
+          <Text>nelabv</Text>
+        </LogoWrapper>
+       </a>
        
        <Text>2021</Text>
      </Wrapper>

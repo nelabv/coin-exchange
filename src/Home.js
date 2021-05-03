@@ -22,16 +22,6 @@ export default function Home(props) {
   const watchlistLocalStorage = localStorage.getItem("watchlist");
   const parsedWatchlist = JSON.parse(watchlistLocalStorage);
 
-  const getLocalStorage = () => {
-    if (parsedWatchlist === null) {
-      setIsWatchlistEmpty(true);
-    } else {
-      setWatchlist(parsedWatchlist);
-      localStorage.setItem("watchlist", JSON.stringify(parsedWatchlist));
-      setIsWatchlistEmpty(false);
-    } 
-  }
-
   const fetchCoinData = async () => {
     try {
       setLoading(true);
@@ -67,7 +57,18 @@ export default function Home(props) {
     }
   })
 
-  useEffect(getLocalStorage, []);
+  useEffect(() => {
+    function getLocalStorage() {
+      if (parsedWatchlist === null) {
+        setIsWatchlistEmpty(true);
+      } else {
+        setWatchlist(parsedWatchlist);
+        localStorage.setItem("watchlist", JSON.stringify(parsedWatchlist));
+        setIsWatchlistEmpty(false);
+      } 
+    }
+    getLocalStorage();
+  }, [parsedWatchlist]);
 
   const handleRefreshBtn = async (coinPriceId) => {
     alert("clicked");
