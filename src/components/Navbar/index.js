@@ -16,7 +16,7 @@ export default function Navbar(props) {
             <Logo>CPC</Logo>
           </a>
           
-          <Link href="https://github.com/nelabv/coin-exchange" target="_blank">
+          <Link href="https://github.com/nelabv/coin-exchange" target="_blank" rel="noopener">
             <SourceCodeBtn>SOURCE CODE</SourceCodeBtn>
           </Link>
         </Wrapper>

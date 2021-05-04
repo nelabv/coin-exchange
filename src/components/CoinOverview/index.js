@@ -6,7 +6,7 @@ import CoinBasicInfo from '../CoinBasicInfo'
 import LoadingScreen from '../LoadingScreen';
 import Footer from '../Footer';
 
-export default function CoinOverview(props) {
+function CoinOverview(props) {
     const id = props.match.params.currency;
 
     const [hasSourceCodeLink, setHasSourceCodeLink] = useState(false);
@@ -112,3 +112,5 @@ export default function CoinOverview(props) {
     </>
     );
 } 
+
+export default React.memo(CoinOverview);

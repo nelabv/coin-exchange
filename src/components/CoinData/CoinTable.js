@@ -12,7 +12,7 @@ import {
   Ticker as Subtext
 } from './CoinTableElements';
  
-export default function CoinTable(props) {
+function CoinTable(props) {
   return (
     <Wrapper>
       <Section>
@@ -59,3 +59,5 @@ export default function CoinTable(props) {
   )
 
 } 
+
+export default React.memo(CoinTable);

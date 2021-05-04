@@ -36,20 +36,20 @@ export const H1 = styled.h1`
 
 export const Img = styled.img`
   order: 2;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 300px;
+  max-height: 300px;
   mix-blend-mode: multiply;
 
   @media only screen and (${props => props.theme.breakpoint.tabletMin}) {
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 400px;
+    max-height: 400px;
     padding-top: 100px;
     padding-bottom: 20px;
   }
 
   @media only screen and (${props => props.theme.breakpoint.laptop}) {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 500px;
+    max-height: 500px;
     padding-top: 100px;
     padding-bottom: 20px;
   }

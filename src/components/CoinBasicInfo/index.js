@@ -16,7 +16,7 @@ import {
   PriceWrapper
 } from './CoinBasicInfoElements';
 
-export default function CoinBasicInfo(props) {
+function CoinBasicInfo(props) {
     const fetchData = () => { 
         props.checkWhitepaper();
     }
@@ -61,3 +61,5 @@ export default function CoinBasicInfo(props) {
       </>
     );
 }
+
+export default React.memo(CoinBasicInfo);
